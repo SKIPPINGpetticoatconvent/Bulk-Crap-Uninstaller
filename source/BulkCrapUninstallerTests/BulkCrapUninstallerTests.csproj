@@ -20,6 +20,7 @@
     <Compile Remove="SelfUpdaterTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AntdUI" Version="2.2.14" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
     <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />

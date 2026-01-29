@@ -32,16 +32,16 @@ namespace BulkCrapUninstaller.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
-            this.labelName = new System.Windows.Forms.Label();
-            this.labelVersion = new System.Windows.Forms.Label();
-            this.labelCopyright = new System.Windows.Forms.Label();
-            this.labelCompanyName = new System.Windows.Forms.Label();
+            this.labelName = new AntdUI.Label();
+            this.labelVersion = new AntdUI.Label();
+            this.labelCopyright = new AntdUI.Label();
+            this.labelCompanyName = new AntdUI.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelis64 = new System.Windows.Forms.Label();
-            this.labelPortable = new System.Windows.Forms.Label();
+            this.labelis64 = new AntdUI.Label();
+            this.labelPortable = new AntdUI.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.labelArchitecture = new System.Windows.Forms.Label();
+            this.labelArchitecture = new AntdUI.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -52,7 +52,7 @@ namespace BulkCrapUninstaller.Forms
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button1 = new AntdUI.Button();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -212,7 +212,8 @@ namespace BulkCrapUninstaller.Forms
             resources.ApplyResources(this.button1, "button1");
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            // this.button1.UseVisualStyleBackColor = true; // AntdUI handles this
+            this.button1.Type = AntdUI.TTypeMini.Primary; // Make it primary button
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // linkLabel4
@@ -314,35 +315,35 @@ namespace BulkCrapUninstaller.Forms
 
         #endregion
 
-        private Label labelName;
-        private Label labelVersion;
-        private Label labelCopyright;
-        private Label labelCompanyName;
-        private GroupBox groupBox1;
-        private GroupBox groupBox2;
-        private LinkLabel linkLabel3;
-        private LinkLabel linkLabel2;
-        private LinkLabel linkLabel1;
-        private LinkLabel linkLabel4;
-        private Button button1;
-        private Label labelArchitecture;
-        private GroupBox groupBox3;
-        private Label labelis64;
-        private LinkLabel linkLabel6;
-        private LinkLabel linkLabel5;
-        private Label labelPortable;
+        private AntdUI.Label labelName;
+        private AntdUI.Label labelVersion;
+        private AntdUI.Label labelCopyright;
+        private AntdUI.Label labelCompanyName;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private AntdUI.Button button1;
+        private AntdUI.Label labelArchitecture;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private AntdUI.Label labelis64;
+        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.LinkLabel linkLabel5;
+        private AntdUI.Label labelPortable;
         private UsageTracker usageTracker1;
-        private Label imageBox;
-        private Panel panel1;
-        private Panel panel3;
-        private Panel panel2;
-        private Panel panel4;
-        private GroupBox groupBox4;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private LinkLabel linkLabel7;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private Panel panel5;
-        private LinkLabel linkLabel8;
-        private LinkLabel linkLabel9;
+        private System.Windows.Forms.Label imageBox;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.LinkLabel linkLabel7;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.LinkLabel linkLabel8;
+        private System.Windows.Forms.LinkLabel linkLabel9;
     }
 }

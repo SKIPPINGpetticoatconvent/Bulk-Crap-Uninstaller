@@ -16,22 +16,23 @@ using Klocman.Tools;
 
 namespace BulkCrapUninstaller.Forms
 {
-    sealed partial class AboutBox : Form
+    sealed partial class AboutBox : AntdUI.Window
     {
         public AboutBox()
         {
             InitializeComponent();
-            labelVersion.Text += AssemblyVersion;
+            AntdUI.Config.Font = new Font("Segoe UI", 9F); // Optional: Standardize font
+            // Remove manual theming logic as AntdUI handles it
+            // labelVersion.Text...
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
             labelis64.Text += ProcessTools.Is64BitProcess.ToYesNo();
             labelArchitecture.Text += Assembly.GetExecutingAssembly().GetName().ProcessorArchitecture;
             labelPortable.Text += Program.IsInstalled.ToYesNo();
 
-            // Apply theme
-            var themeController = new ThemeController(this);
-            if (Enum.TryParse<ThemeController.Theme>(Settings.Default.MiscTheme, true, out var theme))
-                themeController.ApplyTheme(theme);
+            // AntdUI handles theming automatically based on global config or system settings
+            // so we don't need manual ThemeController application here for the window itself
+            // but we might need to sync the global config.
 
             var translationCredits = new[]
             {

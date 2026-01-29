@@ -62,6 +62,14 @@ namespace BulkCrapUninstaller
                     if(Properties.Settings.Default.WindowDpiAware)
                         Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 
+                    // Configure AntdUI Global Theme
+                    if (Enum.TryParse<ThemeController.Theme>(Properties.Settings.Default.MiscTheme, true, out var theme))
+                    {
+                        bool isDark = theme == ThemeController.Theme.Dark || 
+                                     (theme == ThemeController.Theme.System && ThemeController.IsSystemInDarkMode());
+                        AntdUI.Config.Mode = isDark ? AntdUI.TMode.Dark : AntdUI.TMode.Light;
+                    }
+
                     var startupMgr = args.Contains("/startupmanager", StringComparison.OrdinalIgnoreCase) || 
                                      args.Contains("/sm", StringComparison.OrdinalIgnoreCase);
 
