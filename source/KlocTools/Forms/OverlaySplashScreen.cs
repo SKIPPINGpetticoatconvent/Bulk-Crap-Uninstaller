@@ -26,6 +26,9 @@ namespace Klocman.Forms
             _owner.Move += OnOwnerMove;
             _owner.Resize += OnOwnerResize;
             _owner.FormClosed += OnOwnerClosed;
+
+            // Apply theme
+            new Klocman.Forms.Tools.ThemeController(this).ApplyTheme(Klocman.Forms.Tools.ThemeController.CurrentTheme);
         }
 
         private OverlaySplashScreen()

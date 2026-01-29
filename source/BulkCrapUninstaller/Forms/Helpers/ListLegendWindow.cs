@@ -44,6 +44,12 @@ namespace BulkCrapUninstaller.Forms
 
         public ListLegend ListLegend => listLegend1;
 
+        public bool IsDark
+        {
+            get => listLegend1.IsDark;
+            set => listLegend1.IsDark = value;
+        }
+
         private void ListLegendWindow_VisibleChanged(object sender, EventArgs e)
         {
             if (Opacity < .9)

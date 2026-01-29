@@ -28,6 +28,11 @@ namespace BulkCrapUninstaller.Forms
             labelArchitecture.Text += Assembly.GetExecutingAssembly().GetName().ProcessorArchitecture;
             labelPortable.Text += Program.IsInstalled.ToYesNo();
 
+            // Apply theme
+            var themeController = new ThemeController(this);
+            if (Enum.TryParse<ThemeController.Theme>(Settings.Default.MiscTheme, true, out var theme))
+                themeController.ApplyTheme(theme);
+
             var translationCredits = new[]
             {
                 // en - English

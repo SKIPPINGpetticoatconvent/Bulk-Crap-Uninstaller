@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
 using BulkCrapUninstaller.Forms;
@@ -12,6 +13,7 @@ using BulkCrapUninstaller.Functions.Ratings;
 using BulkCrapUninstaller.Properties;
 using Klocman.Binding.Settings;
 using Klocman.Extensions;
+using Klocman.Forms.Tools;
 using Klocman.IO;
 using Klocman.Localising;
 using Klocman.Resources;
@@ -254,7 +256,18 @@ namespace BulkCrapUninstaller.Functions.ApplicationList
 
             var color = ApplicationListConstants.GetApplicationBackColor(entry);
             if (!color.IsEmpty)
-                e.Item.BackColor = color;
+            {
+                if (_reference.ThemeController != null && _reference.ThemeController.IsDark)
+                {
+                    // Darken the color for dark mode
+                    e.Item.BackColor = ThemeController.DarkenColor(color, 0.2f);
+                    e.Item.ForeColor = Color.White; // Ensure text is white on colored dark background
+                }
+                else
+                {
+                    e.Item.BackColor = color;
+                }
+            }
         }
 
         public void UpdateColumnFiltering(bool anyUninstallers)

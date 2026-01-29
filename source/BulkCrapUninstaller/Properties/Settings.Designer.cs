@@ -1099,12 +1099,27 @@ namespace BulkCrapUninstaller.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("OpenProperties")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+
         public global::BulkCrapUninstaller.Forms.UninstallerListDoubleClickAction UninstallerListDoubleClickAction {
             get {
                 return ((global::BulkCrapUninstaller.Forms.UninstallerListDoubleClickAction)(this["UninstallerListDoubleClickAction"]));
             }
             set {
                 this["UninstallerListDoubleClickAction"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(PortableSettingsProvider.PortableSettingsProvider))]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("System")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public string MiscTheme {
+            get {
+                return ((string)(this["MiscTheme"]));
+            }
+            set {
+                this["MiscTheme"] = value;
             }
         }
     }

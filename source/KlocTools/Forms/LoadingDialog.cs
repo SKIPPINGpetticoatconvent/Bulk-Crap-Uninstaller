@@ -46,6 +46,9 @@ namespace Klocman.Forms
                 _controller.CloseDialog();
             })
             { Name = "LoadingDialogThread - " + title };
+
+            // Apply theme
+            new Klocman.Forms.Tools.ThemeController(this).ApplyTheme(Klocman.Forms.Tools.ThemeController.CurrentTheme);
         }
 
         protected override CreateParams CreateParams

@@ -236,5 +236,8 @@
     <Setting Name="UninstallerListDoubleClickAction" Provider="PortableSettingsProvider.PortableSettingsProvider" Roaming="true" Type="BulkCrapUninstaller.Forms.UninstallerListDoubleClickAction" Scope="User">
       <Value Profile="(Default)">OpenProperties</Value>
     </Setting>
+    <Setting Name="MiscTheme" Provider="PortableSettingsProvider.PortableSettingsProvider" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">System</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

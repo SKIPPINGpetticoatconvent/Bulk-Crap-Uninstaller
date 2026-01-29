@@ -28,14 +28,31 @@ namespace BulkCrapUninstaller.Controls
             UpdateColors();
         }
 
+        private bool _isDark;
+        [Browsable(false)]
+        public bool IsDark
+        {
+            get { return _isDark; }
+            set
+            {
+                if (_isDark != value)
+                {
+                    _isDark = value;
+                    UpdateColors();
+                }
+            }
+        }
+
         private void UpdateColors()
         {
-            flowLayoutPanellabelInvalid.BackColor = ApplicationListConstants.Colors.InvalidColor;
-            flowLayoutPanellabelOrphaned.BackColor = ApplicationListConstants.Colors.UnregisteredColor;
-            flowLayoutPanellabelUnverified.BackColor = ApplicationListConstants.Colors.UnverifiedColor;
-            flowLayoutPanellabelVerified.BackColor = ApplicationListConstants.Colors.VerifiedColor;
-            flowLayoutPanellabelWinFeature.BackColor = ApplicationListConstants.Colors.WindowsFeatureColor;
-            flowLayoutPanellabelStoreApp.BackColor = ApplicationListConstants.Colors.WindowsStoreAppColor;
+            Color GetColor(Color c) => IsDark ? ThemeController.DarkenColor(c, 0.2f) : c;
+
+            flowLayoutPanellabelInvalid.BackColor = GetColor(ApplicationListConstants.Colors.InvalidColor);
+            flowLayoutPanellabelOrphaned.BackColor = GetColor(ApplicationListConstants.Colors.UnregisteredColor);
+            flowLayoutPanellabelUnverified.BackColor = GetColor(ApplicationListConstants.Colors.UnverifiedColor);
+            flowLayoutPanellabelVerified.BackColor = GetColor(ApplicationListConstants.Colors.VerifiedColor);
+            flowLayoutPanellabelWinFeature.BackColor = GetColor(ApplicationListConstants.Colors.WindowsFeatureColor);
+            flowLayoutPanellabelStoreApp.BackColor = GetColor(ApplicationListConstants.Colors.WindowsStoreAppColor);
         }
 
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]

@@ -47,6 +47,7 @@ namespace BulkCrapUninstaller.Forms
         private readonly UninstallerListViewUpdater _listView;
         private readonly SettingTools _setMan;
         private readonly WindowStyleController _styleController;
+        public ThemeController ThemeController { get; }
         private readonly AppUninstaller _appUninstaller;
         private readonly UninstallerListConfigurator _uninstallerListConfigurator;
 
@@ -81,6 +82,14 @@ namespace BulkCrapUninstaller.Forms
             // Setup settings
             _setMan = new SettingTools(Settings.Default.SettingBinder, this);
             _setMan.LoadSettings();
+
+            _styleController = new WindowStyleController(this);
+            ThemeController = new ThemeController(this);
+            // Initialize theme
+            if (Enum.TryParse<ThemeController.Theme>(Settings.Default.MiscTheme, true, out var initialTheme))
+                ThemeController.CurrentTheme = initialTheme;
+            ThemeController.ApplyTheme(ThemeController.CurrentTheme);
+
             BindControlsToSettings();
 
             // Finish up setting controls and window, suspend after settings have loaded
@@ -154,10 +163,10 @@ namespace BulkCrapUninstaller.Forms
 
             Console.WriteLine(MainTitleBarText);
 
-            _styleController = new WindowStyleController(this);
-
             // Initialize the status bar
             toolStripLabelStatus_TextChanged(this, EventArgs.Empty);
+
+            SetupThemeMenu();
 
             // Debug stuff
             var isDebug = Program.EnableDebug;
@@ -198,6 +207,41 @@ namespace BulkCrapUninstaller.Forms
             _setMan.Selected.Subscribe((x, y) => splitContainerListAndMap.Panel2Collapsed = !y.NewValue, settings => settings.ShowTreeMap, this);
 
             uninstallerObjectListView.ContextMenuStrip = uninstallListContextMenuStrip;
+        }
+
+        private void SetupThemeMenu()
+        {
+            var themeMenu = new ToolStripMenuItem("Theme");
+            
+            var items = new[]
+            {
+                new { Name = "Light", Value = ThemeController.Theme.Light },
+                new { Name = "Dark", Value = ThemeController.Theme.Dark },
+                new { Name = "System", Value = ThemeController.Theme.System }
+            };
+
+            foreach (var item in items)
+            {
+                var menuItem = new ToolStripMenuItem(item.Name, null, (s, e) =>
+                {
+                    _setMan.Selected.Settings.MiscTheme = item.Value.ToString();
+                });
+                
+                // Check the item if it matches current setting
+                _setMan.Selected.Subscribe((x, y) =>
+                {
+                    menuItem.Checked = y.NewValue == item.Value.ToString();
+                }, x => x.MiscTheme, this);
+
+                themeMenu.DropDownItems.Add(menuItem);
+            }
+
+            // Insert into View menu (find it by name or index)
+            // viewToolStripMenuItem is usually index 1 or we can find by name
+            if (viewToolStripMenuItem != null)
+            {
+                viewToolStripMenuItem.DropDownItems.Insert(viewToolStripMenuItem.DropDownItems.IndexOf(useSystemThemeToolStripMenuItem) + 1, themeMenu);
+            }
         }
 
         protected override void OnDpiChanged(DpiChangedEventArgs e)
@@ -569,6 +613,19 @@ namespace BulkCrapUninstaller.Forms
                 x => x.WindowUseSystemTheme, this);
             settings.Subscribe((x, y) => statusStrip1.Visible = y.NewValue,
                 x => x.ToolbarsShowStatusbar, this);
+
+            if (Enum.TryParse<ThemeController.Theme>(Settings.Default.MiscTheme, true, out var initialTheme))
+                ThemeController.CurrentTheme = initialTheme;
+            ThemeController.ApplyTheme(ThemeController.CurrentTheme);
+            settings.Subscribe((x, y) =>
+            {
+                if (Enum.TryParse<ThemeController.Theme>(y.NewValue, true, out var theme))
+                {
+                    ThemeController.CurrentTheme = theme;
+                    ThemeController.ApplyTheme(theme);
+                    _listLegendWindow.IsDark = ThemeController.IsDark;
+                }
+            }, x => x.MiscTheme, this);
 
             settings.Subscribe((x, y) =>
             {
