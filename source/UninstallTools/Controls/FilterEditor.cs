@@ -43,11 +43,11 @@ namespace UninstallTools.Controls
             InitializeComponent();
 
             comboBoxCompareMethod.Items.AddRange(FilteringOptions.Cast<object>().ToArray());
-            comboBoxCompareMethod.SelectedIndex = 0;
+            if(comboBoxCompareMethod.Items.Count > 0) comboBoxCompareMethod.SelectedIndex = 0;
 
             comboBox1.Items.Add(ComparisonTargetInfo.AllTargetComparison.DisplayName);
             comboBox1.Items.AddRange(PropertyTargets.Keys.Cast<object>().ToArray());
-            comboBox1.SelectedIndex = 0;
+            if(comboBox1.Items.Count > 0) comboBox1.SelectedIndex = 0;
 
             var autoCompleteStringCollection = new AutoCompleteStringCollection();
 
@@ -62,7 +62,7 @@ namespace UninstallTools.Controls
         {
             get
             {
-                var selection = comboBox1.SelectedItem?.ToString();
+                var selection = comboBox1.SelectedValue?.ToString();
                 if (string.IsNullOrEmpty(selection))
                     return ComparisonTargetInfo.AllTargetComparison;
 
@@ -103,7 +103,7 @@ namespace UninstallTools.Controls
             Enabled = true;
 
             var option = FilteringOptions.FirstOrDefault(x => _targetFilterCondition.ComparisonMethod.Equals(x.TargetEnum));
-            comboBoxCompareMethod.SelectedItem = option ?? FilteringOptions[0];
+            comboBoxCompareMethod.SelectedValue = option ?? FilteringOptions[0];
 
             comboBox1.SelectedIndex = string.IsNullOrEmpty(_targetFilterCondition.TargetPropertyId)
                 ? 0
@@ -172,14 +172,14 @@ namespace UninstallTools.Controls
             OnComparisonMethodChanged(this, EventArgs.Empty);
         }
 
-        private void comboBoxCompareMethod_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxCompareMethod_SelectedIndexChanged(object sender, AntdUI.IntEventArgs e)
         {
-            if (comboBoxCompareMethod.SelectedItem is not LocalisedEnumWrapper localisedEnumWrapper || _targetFilterCondition == null
+            if (comboBoxCompareMethod.SelectedValue is not LocalisedEnumWrapper localisedEnumWrapper || _targetFilterCondition == null
                                                                                                    || _targetFilterCondition.ComparisonMethod == (ComparisonMethod)localisedEnumWrapper.TargetEnum)
                 return;
 
             _targetFilterCondition.ComparisonMethod = (ComparisonMethod)localisedEnumWrapper.TargetEnum;
-            OnComparisonMethodChanged(sender, e);
+            OnComparisonMethodChanged(sender, EventArgs.Empty);
         }
 
         private void searchBox1_SearchTextChanged(object sender, SearchBox.SearchEventArgs searchEventArgs)
@@ -198,15 +198,15 @@ namespace UninstallTools.Controls
             OnComparisonMethodChanged(sender, e);
         }
 
-        private void checkBoxInvert_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxInvert_CheckedChanged(object sender, AntdUI.BoolEventArgs e)
         {
             if (_targetFilterCondition == null || _targetFilterCondition.InvertResults == checkBoxInvert.Checked) return;
 
             _targetFilterCondition.InvertResults = checkBoxInvert.Checked;
-            OnComparisonMethodChanged(sender, e);
+            OnComparisonMethodChanged(sender, EventArgs.Empty);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, AntdUI.IntEventArgs e)
         {
             if (_targetFilterCondition == null)
                 return;
@@ -226,7 +226,7 @@ namespace UninstallTools.Controls
                 .Equals(targetInfo.Id, StringComparison.InvariantCultureIgnoreCase)) return;
 
             _targetFilterCondition.TargetPropertyId = targetInfo.Id;
-            OnComparisonMethodChanged(sender, e);
+            OnComparisonMethodChanged(sender, EventArgs.Empty);
         }
     }
 }

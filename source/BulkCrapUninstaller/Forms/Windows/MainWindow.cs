@@ -85,6 +85,36 @@ namespace BulkCrapUninstaller.Forms
 
             _styleController = new WindowStyleController(this);
             ThemeController = new ThemeController(this);
+            ThemeController.ThemeChanged += (s, e) =>
+            {
+                var isDark = ThemeController.IsDark;
+                // Fix: Use correct API discovered from EntryPoint.cs
+                if (isDark) AntdUI.Config.Mode = AntdUI.TMode.Dark;
+                else AntdUI.Config.Mode = AntdUI.TMode.Light;
+                
+                if (isDark)
+                {
+                    ToolStripManager.Renderer = new ToolStripProfessionalRenderer(new DarkColorTable()) { RoundedEdges = true };
+                    menuStrip.BackColor = ThemeController.Palette.DarkBackground;
+                    menuStrip.ForeColor = ThemeController.Palette.DarkForeground;
+                    toolStrip.BackColor = ThemeController.Palette.DarkBackground;
+                    toolStrip.ForeColor = ThemeController.Palette.DarkForeground;
+                    statusStrip1.BackColor = ThemeController.Palette.DarkBackground;
+                    statusStrip1.ForeColor = ThemeController.Palette.DarkForeground;
+                }
+                else
+                {
+                    ToolStripManager.Renderer = new ToolStripProfessionalRenderer(new StandardSystemColorTable()) { RoundedEdges = true };
+                    menuStrip.BackColor = SystemColors.MenuBar;
+                    menuStrip.ForeColor = SystemColors.MenuText;
+                    toolStrip.BackColor = SystemColors.Control;
+                    toolStrip.ForeColor = SystemColors.ControlText;
+                    statusStrip1.BackColor = SystemColors.Control;
+                    statusStrip1.ForeColor = SystemColors.ControlText;
+                }
+                Refresh();
+            };
+
             // Initialize theme
             if (Enum.TryParse<ThemeController.Theme>(Settings.Default.MiscTheme, true, out var initialTheme))
                 ThemeController.CurrentTheme = initialTheme;

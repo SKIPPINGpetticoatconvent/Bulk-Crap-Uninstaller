@@ -4,8 +4,11 @@
 */
 
 using System;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Windows.Forms;
 using BulkCrapUninstaller.Functions;
 using BulkCrapUninstaller.Properties;
@@ -16,7 +19,7 @@ using Klocman.Localising;
 
 namespace BulkCrapUninstaller.Forms
 {
-    public partial class SettingsWindow : Form
+    public partial class SettingsWindow : AntdUI.Window
     {
         private readonly SettingBinder<Settings> _settings = Settings.Default.SettingBinder;
         private bool _restartNeeded;
@@ -26,9 +29,10 @@ namespace BulkCrapUninstaller.Forms
         public SettingsWindow()
         {
             InitializeComponent();
+            AntdUI.Config.Font = new Font("Segoe UI", 9F);
         }
 
-        private ThemeController _themeController;
+        // private ThemeController _themeController; // Removed
 
         protected override void OnLoad(EventArgs e)
         {
@@ -36,6 +40,8 @@ namespace BulkCrapUninstaller.Forms
 
             if (DesignMode) return;
             
+            // AntdUI handles theming automatically
+            /*
             _themeController = new ThemeController(this);
             _settings.Subscribe((x, y) =>
             {
@@ -46,39 +52,40 @@ namespace BulkCrapUninstaller.Forms
             // Apply initial theme
             if (Enum.TryParse<ThemeController.Theme>(_settings.Settings.MiscTheme, true, out var initialTheme))
                 _themeController.ApplyTheme(initialTheme);
+            */
 
             Icon = Resources.Icon_Logo;
 
-            _settings.BindControl(checkBoxLoud, x => x.MessagesAskRemoveLoudItems, this);
-            _settings.BindControl(checkBoxShowAllBadJunk, x => x.MessagesShowAllBadJunk, this);
-            _settings.BindControl(checkBoxNeverFeedback, x => x.MiscFeedbackNagNeverShow, this);
-            _settings.BindControl(checkBoxUpdateSearch, x => x.MiscCheckForUpdates, this);
-            _settings.BindControl(checkBoxSendStats, x => x.MiscSendStatistics, this);
-            _settings.BindControl(checkBoxAutoLoad, x => x.MiscAutoLoadDefaultList, this);
-            _settings.BindControl(checkBoxRatings, x => x.MiscUserRatings, this);
-            _settings.BindControl(checkBoxColorblind, x => x.MiscColorblind, this);
-            _settings.BindControl(checkBoxDpiaware, x => x.WindowDpiAware, this);
+            BindAntdCheck(checkBoxLoud, x => x.MessagesAskRemoveLoudItems);
+            BindAntdCheck(checkBoxShowAllBadJunk, x => x.MessagesShowAllBadJunk);
+            BindAntdCheck(checkBoxNeverFeedback, x => x.MiscFeedbackNagNeverShow);
+            BindAntdCheck(checkBoxUpdateSearch, x => x.MiscCheckForUpdates);
+            BindAntdCheck(checkBoxSendStats, x => x.MiscSendStatistics);
+            BindAntdCheck(checkBoxAutoLoad, x => x.MiscAutoLoadDefaultList);
+            BindAntdCheck(checkBoxRatings, x => x.MiscUserRatings);
+            BindAntdCheck(checkBoxColorblind, x => x.MiscColorblind);
+            BindAntdCheck(checkBoxDpiaware, x => x.WindowDpiAware);
 
-            _settings.BindControl(checkBoxEnableExternal, x => x.ExternalEnable, this);
-            _settings.BindControl(textBoxPreUninstall, x => x.ExternalPreCommands, this);
-            _settings.BindControl(textBoxPostUninstall, x => x.ExternalPostCommands, this);
+            BindAntdCheck(checkBoxEnableExternal, x => x.ExternalEnable);
+            BindAntdInput(textBoxPreUninstall, x => x.ExternalPreCommands);
+            BindAntdInput(textBoxPostUninstall, x => x.ExternalPostCommands);
 
-            _settings.BindControl(textBoxProgramFolders, x => x.FoldersCustomProgramDirs, this);
-            _settings.BindControl(checkBoxAutoInstallFolderDetect, x => x.FoldersAutoDetect, this);
-            _settings.BindControl(checkBoxRemovable, x => x.FoldersScanRemovable, this);
+            BindAntdInput(textBoxProgramFolders, x => x.FoldersCustomProgramDirs);
+            BindAntdCheck(checkBoxAutoInstallFolderDetect, x => x.FoldersAutoDetect);
+            BindAntdCheck(checkBoxRemovable, x => x.FoldersScanRemovable);
             _settings.Subscribe((x, y) => checkBoxRemovable.Enabled = y.NewValue, x => x.FoldersAutoDetect, this);
 
-            _settings.BindControl(checkBoxChoco, x => x.ScanChocolatey, this);
-            _settings.BindControl(checkBoxScoop, x => x.ScanScoop, this);
-            _settings.BindControl(checkBoxScanSteam, x => x.ScanSteam, this);
-            _settings.BindControl(checkBoxScanStoreApps, x => x.ScanStoreApps, this);
-            _settings.BindControl(checkBoxOculus, x => x.ScanOculus, this);
-            _settings.BindControl(checkBoxScanWinFeatures, x => x.ScanWinFeatures, this);
-            _settings.BindControl(checkBoxScanWinUpdates, x => x.ScanWinUpdates, this);
+            BindAntdCheck(checkBoxChoco, x => x.ScanChocolatey);
+            BindAntdCheck(checkBoxScoop, x => x.ScanScoop);
+            BindAntdCheck(checkBoxScanSteam, x => x.ScanSteam);
+            BindAntdCheck(checkBoxScanStoreApps, x => x.ScanStoreApps);
+            BindAntdCheck(checkBoxOculus, x => x.ScanOculus);
+            BindAntdCheck(checkBoxScanWinFeatures, x => x.ScanWinFeatures);
+            BindAntdCheck(checkBoxScanWinUpdates, x => x.ScanWinUpdates);
 
-            _settings.BindControl(checkBoxScanDrives, x => x.ScanDrives, this);
-            _settings.BindControl(checkBoxScanRegistry, x => x.ScanRegistry, this);
-            _settings.BindControl(checkBoxPreDefined, x => x.ScanPreDefined, this);
+            BindAntdCheck(checkBoxScanDrives, x => x.ScanDrives);
+            BindAntdCheck(checkBoxScanRegistry, x => x.ScanRegistry);
+            BindAntdCheck(checkBoxPreDefined, x => x.ScanPreDefined);
 
             foreach (YesNoAsk value in Enum.GetValues(typeof(YesNoAsk)))
             {
@@ -113,6 +120,26 @@ namespace BulkCrapUninstaller.Forms
             _restartNeeded = false;
         }
 
+        private void BindAntdCheck(AntdUI.Checkbox box, Expression<Func<Settings, bool>> settingSelector)
+        {
+            var compiled = settingSelector.Compile();
+            box.Checked = compiled(_settings.Settings);
+
+            var memberExpr = (MemberExpression)settingSelector.Body;
+            var property = (System.Reflection.PropertyInfo)memberExpr.Member;
+
+            box.CheckedChanged += (s, e) => 
+            {
+                property.SetValue(_settings.Settings, box.Checked);
+            };
+
+            _settings.Subscribe((sender, args) => 
+            {
+                if (box.Checked != args.NewValue)
+                    box.Checked = args.NewValue;
+            }, settingSelector, this);
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
@@ -123,38 +150,38 @@ namespace BulkCrapUninstaller.Forms
             }
         }
 
-        private void checkBoxEnableExternal_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxEnableExternal_CheckedChanged(object sender, AntdUI.BoolEventArgs e)
         {
             splitContainer1.Enabled = checkBoxEnableExternal.Checked;
             //textBoxPreUninstall.Enabled = checkBoxEnableExternal.Checked;
             //textBoxPostUninstall.Enabled = checkBoxEnableExternal.Checked;
         }
 
-        private void comboBoxJunk_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxJunk_SelectedIndexChanged(object sender, AntdUI.IntEventArgs e)
         {
-            if (comboBoxJunk.SelectedItem is LocalisedEnumWrapper wrapper)
+            if (comboBoxJunk.SelectedValue is LocalisedEnumWrapper wrapper)
             {
                 _settings.Settings.MessagesRemoveJunk = (YesNoAsk)wrapper.TargetEnum;
             }
         }
 
-        private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxLanguage_SelectedIndexChanged(object sender, AntdUI.IntEventArgs e)
         {
-            if (comboBoxLanguage.SelectedItem is ComboBoxWrapper<CultureInfo> wrapper)
+            if (comboBoxLanguage.SelectedValue is ComboBoxWrapper<CultureInfo> wrapper)
             {
                 _settings.Settings.Language = wrapper.WrappedObject.Name;
                 _restartNeeded = true;
             }
-            else if (comboBoxLanguage.SelectedItem is string)
+            else if (comboBoxLanguage.SelectedValue is string)
             {
                 _settings.Settings.Language = string.Empty;
                 _restartNeeded = true;
             }
         }
 
-        private void comboBoxRestore_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxRestore_SelectedIndexChanged(object sender, AntdUI.IntEventArgs e)
         {
-            if (comboBoxRestore.SelectedItem is LocalisedEnumWrapper wrapper)
+            if (comboBoxRestore.SelectedValue is LocalisedEnumWrapper wrapper)
             {
                 _settings.Settings.MessagesRestorePoints = (YesNoAsk)wrapper.TargetEnum;
             }
@@ -164,10 +191,10 @@ namespace BulkCrapUninstaller.Forms
         {
             var newSelection =
                 comboBoxJunk.Items.Cast<LocalisedEnumWrapper>().FirstOrDefault(x => x.TargetEnum.Equals(args.NewValue));
-            if (newSelection == null || newSelection.Equals(comboBoxJunk.SelectedItem))
+            if (newSelection == null || newSelection.Equals(comboBoxJunk.SelectedValue))
                 return;
 
-            comboBoxJunk.SelectedItem = newSelection;
+            comboBoxJunk.SelectedValue = newSelection;
         }
 
         private void LanguageSettingChanged(object sender, SettingChangedEventArgs<string> args)
@@ -178,7 +205,7 @@ namespace BulkCrapUninstaller.Forms
                     .FirstOrDefault(x => x.WrappedObject.Name.Equals(args.NewValue));
                 if (selectedItem != null)
                 {
-                    comboBoxLanguage.SelectedItem = selectedItem;
+                    comboBoxLanguage.SelectedValue = selectedItem;
                     return;
                 }
             }
@@ -190,10 +217,10 @@ namespace BulkCrapUninstaller.Forms
             var newSelection =
                 comboBoxRestore.Items.Cast<LocalisedEnumWrapper>()
                     .FirstOrDefault(x => x.TargetEnum.Equals(args.NewValue));
-            if (newSelection == null || newSelection.Equals(comboBoxRestore.SelectedItem))
+            if (newSelection == null || newSelection.Equals(comboBoxRestore.SelectedValue))
                 return;
 
-            comboBoxRestore.SelectedItem = newSelection;
+            comboBoxRestore.SelectedValue = newSelection;
         }
 
         private void SettingsWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -201,11 +228,11 @@ namespace BulkCrapUninstaller.Forms
             _settings.RemoveHandlers(this);
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void tabControl_SelectedIndexChanged(object sender, AntdUI.IntEventArgs e)
         {
         }
 
-        private void radioButtonBackup_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonBackup_CheckedChanged(object sender, AntdUI.BoolEventArgs e)
         {
             directorySelectBoxBackup.Enabled = false;
 
@@ -240,9 +267,9 @@ namespace BulkCrapUninstaller.Forms
             }
         }
 
-        private void comboBoxDoubleClick_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxDoubleClick_SelectedIndexChanged(object sender, AntdUI.IntEventArgs e)
         {
-            if (comboBoxDoubleClick.SelectedItem is LocalisedEnumWrapper wrapper)
+            if (comboBoxDoubleClick.SelectedValue is LocalisedEnumWrapper wrapper)
             {
                 _settings.Settings.UninstallerListDoubleClickAction = (UninstallerListDoubleClickAction)wrapper.TargetEnum;
             }
@@ -251,10 +278,48 @@ namespace BulkCrapUninstaller.Forms
         private void DoubleClickSettingChanged(object sender, SettingChangedEventArgs<UninstallerListDoubleClickAction> args)
         {
             var newSelection = comboBoxDoubleClick.Items.Cast<LocalisedEnumWrapper>().FirstOrDefault(x => x.TargetEnum.Equals(args.NewValue));
-            if (newSelection == null || newSelection.Equals(comboBoxDoubleClick.SelectedItem))
+            if (newSelection == null || newSelection.Equals(comboBoxDoubleClick.SelectedValue))
                 return;
 
-            comboBoxDoubleClick.SelectedItem = newSelection;
+            comboBoxDoubleClick.SelectedValue = newSelection;
+        }
+        private void BindAntdInput(AntdUI.Input control, System.Linq.Expressions.Expression<Func<Settings, string>> settingSelector)
+        {
+            var compiled = settingSelector.Compile();
+            control.Text = compiled(_settings.Settings);
+
+            var memberExpr = (MemberExpression)settingSelector.Body;
+            var property = (System.Reflection.PropertyInfo)memberExpr.Member;
+
+            control.TextChanged += (s, e) => 
+            {
+                property.SetValue(_settings.Settings, control.Text);
+            };
+
+            _settings.Subscribe((x, y) => 
+            {
+                if (control.Text != y.NewValue) control.Text = y.NewValue;
+            }, settingSelector, this);
+        }
+
+        private void BindAntdInput(AntdUI.Input control, System.Linq.Expressions.Expression<Func<Settings, decimal>> settingSelector)
+        {
+             var compiled = settingSelector.Compile();
+             control.Text = compiled(_settings.Settings).ToString();
+
+             var memberExpr = (MemberExpression)settingSelector.Body;
+             var property = (System.Reflection.PropertyInfo)memberExpr.Member;
+
+             control.TextChanged += (s, e) => {
+                 if(decimal.TryParse(control.Text, out var val)) 
+                    property.SetValue(_settings.Settings, val);
+             };
+
+             _settings.Subscribe((x, y) => 
+             {
+                 var newVal = y.NewValue.ToString();
+                 if (control.Text != newVal) control.Text = newVal;
+             }, settingSelector, this);
         }
     }
 }

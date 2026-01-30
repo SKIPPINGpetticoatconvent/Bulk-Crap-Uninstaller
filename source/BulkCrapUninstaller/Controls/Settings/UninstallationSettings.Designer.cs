@@ -31,28 +31,27 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UninstallationSettings));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBoxManualNoCollisionProtection = new System.Windows.Forms.CheckBox();
-            this.checkBoxConcurrentOneLoud = new System.Windows.Forms.CheckBox();
-            this.checkBoxConcurrent = new System.Windows.Forms.CheckBox();
-            this.numericUpDownMaxConcurrent = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxManualNoCollisionProtection = new AntdUI.Checkbox();
+            this.checkBoxConcurrentOneLoud = new AntdUI.Checkbox();
+            this.checkBoxConcurrent = new AntdUI.Checkbox();
+            this.numericUpDownMaxConcurrent = new AntdUI.InputNumber();
+            this.label2 = new AntdUI.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxShutdown = new System.Windows.Forms.CheckBox();
-            this.checkBoxRestorePoint = new System.Windows.Forms.CheckBox();
-            this.checkBoxBatchSortQuiet = new System.Windows.Forms.CheckBox();
-            this.checkBoxDiisableProtection = new System.Windows.Forms.CheckBox();
-            this.checkBoxSimulate = new System.Windows.Forms.CheckBox();
+            this.checkBoxShutdown = new AntdUI.Checkbox();
+            this.checkBoxRestorePoint = new AntdUI.Checkbox();
+            this.checkBoxBatchSortQuiet = new AntdUI.Checkbox();
+            this.checkBoxDiisableProtection = new AntdUI.Checkbox();
+            this.checkBoxSimulate = new AntdUI.Checkbox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxAutoKillQuiet = new System.Windows.Forms.CheckBox();
-            this.checkBoxRetryQuiet = new System.Windows.Forms.CheckBox();
-            this.checkBoxGenerate = new System.Windows.Forms.CheckBox();
-            this.checkBoxGenerateStuck = new System.Windows.Forms.CheckBox();
-            this.checkBoxAutoDaemon = new System.Windows.Forms.CheckBox();
+            this.checkBoxAutoKillQuiet = new AntdUI.Checkbox();
+            this.checkBoxRetryQuiet = new AntdUI.Checkbox();
+            this.checkBoxGenerate = new AntdUI.Checkbox();
+            this.checkBoxGenerateStuck = new AntdUI.Checkbox();
+            this.checkBoxAutoDaemon = new AntdUI.Checkbox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxConcurrent)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,19 +73,19 @@
             // 
             resources.ApplyResources(this.checkBoxManualNoCollisionProtection, "checkBoxManualNoCollisionProtection");
             this.checkBoxManualNoCollisionProtection.Name = "checkBoxManualNoCollisionProtection";
-            this.checkBoxManualNoCollisionProtection.UseVisualStyleBackColor = true;
+            // this.checkBoxManualNoCollisionProtection.UseVisualStyleBackColor = true;
             // 
             // checkBoxConcurrentOneLoud
             // 
             resources.ApplyResources(this.checkBoxConcurrentOneLoud, "checkBoxConcurrentOneLoud");
             this.checkBoxConcurrentOneLoud.Name = "checkBoxConcurrentOneLoud";
-            this.checkBoxConcurrentOneLoud.UseVisualStyleBackColor = true;
+            // this.checkBoxConcurrentOneLoud.UseVisualStyleBackColor = true;
             // 
             // checkBoxConcurrent
             // 
             resources.ApplyResources(this.checkBoxConcurrent, "checkBoxConcurrent");
             this.checkBoxConcurrent.Name = "checkBoxConcurrent";
-            this.checkBoxConcurrent.UseVisualStyleBackColor = true;
+            // this.checkBoxConcurrent.UseVisualStyleBackColor = true;
             // 
             // numericUpDownMaxConcurrent
             // 
@@ -135,32 +134,32 @@
             // 
             resources.ApplyResources(this.checkBoxShutdown, "checkBoxShutdown");
             this.checkBoxShutdown.Name = "checkBoxShutdown";
-            this.checkBoxShutdown.UseVisualStyleBackColor = true;
+            // this.checkBoxShutdown.UseVisualStyleBackColor = true;
             // 
             // checkBoxRestorePoint
             // 
             resources.ApplyResources(this.checkBoxRestorePoint, "checkBoxRestorePoint");
             this.checkBoxRestorePoint.Name = "checkBoxRestorePoint";
             this.toolTip1.SetToolTip(this.checkBoxRestorePoint, resources.GetString("checkBoxRestorePoint.ToolTip"));
-            this.checkBoxRestorePoint.UseVisualStyleBackColor = true;
+            // this.checkBoxRestorePoint.UseVisualStyleBackColor = true;
             // 
             // checkBoxBatchSortQuiet
             // 
             resources.ApplyResources(this.checkBoxBatchSortQuiet, "checkBoxBatchSortQuiet");
             this.checkBoxBatchSortQuiet.Name = "checkBoxBatchSortQuiet";
-            this.checkBoxBatchSortQuiet.UseVisualStyleBackColor = true;
+            // this.checkBoxBatchSortQuiet.UseVisualStyleBackColor = true;
             // 
             // checkBoxDiisableProtection
             // 
             resources.ApplyResources(this.checkBoxDiisableProtection, "checkBoxDiisableProtection");
             this.checkBoxDiisableProtection.Name = "checkBoxDiisableProtection";
-            this.checkBoxDiisableProtection.UseVisualStyleBackColor = true;
+            // this.checkBoxDiisableProtection.UseVisualStyleBackColor = true;
             // 
             // checkBoxSimulate
             // 
             resources.ApplyResources(this.checkBoxSimulate, "checkBoxSimulate");
             this.checkBoxSimulate.Name = "checkBoxSimulate";
-            this.checkBoxSimulate.UseVisualStyleBackColor = true;
+            // this.checkBoxSimulate.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -183,31 +182,31 @@
             // 
             resources.ApplyResources(this.checkBoxAutoKillQuiet, "checkBoxAutoKillQuiet");
             this.checkBoxAutoKillQuiet.Name = "checkBoxAutoKillQuiet";
-            this.checkBoxAutoKillQuiet.UseVisualStyleBackColor = true;
+            // this.checkBoxAutoKillQuiet.UseVisualStyleBackColor = true;
             // 
             // checkBoxRetryQuiet
             // 
             resources.ApplyResources(this.checkBoxRetryQuiet, "checkBoxRetryQuiet");
             this.checkBoxRetryQuiet.Name = "checkBoxRetryQuiet";
-            this.checkBoxRetryQuiet.UseVisualStyleBackColor = true;
+            // this.checkBoxRetryQuiet.UseVisualStyleBackColor = true;
             // 
             // checkBoxGenerate
             // 
             resources.ApplyResources(this.checkBoxGenerate, "checkBoxGenerate");
             this.checkBoxGenerate.Name = "checkBoxGenerate";
-            this.checkBoxGenerate.UseVisualStyleBackColor = true;
+            // this.checkBoxGenerate.UseVisualStyleBackColor = true;
             // 
             // checkBoxGenerateStuck
             // 
             resources.ApplyResources(this.checkBoxGenerateStuck, "checkBoxGenerateStuck");
             this.checkBoxGenerateStuck.Name = "checkBoxGenerateStuck";
-            this.checkBoxGenerateStuck.UseVisualStyleBackColor = true;
+            // this.checkBoxGenerateStuck.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoDaemon
             // 
             resources.ApplyResources(this.checkBoxAutoDaemon, "checkBoxAutoDaemon");
             this.checkBoxAutoDaemon.Name = "checkBoxAutoDaemon";
-            this.checkBoxAutoDaemon.UseVisualStyleBackColor = true;
+            // this.checkBoxAutoDaemon.UseVisualStyleBackColor = true;
             // 
             // UninstallationSettings
             // 
@@ -218,8 +217,8 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "UninstallationSettings";
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxConcurrent)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
@@ -236,25 +235,25 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.CheckBox checkBoxConcurrentOneLoud;
-        private System.Windows.Forms.CheckBox checkBoxConcurrent;
-        private System.Windows.Forms.NumericUpDown numericUpDownMaxConcurrent;
-        private System.Windows.Forms.Label label2;
+        private AntdUI.Checkbox checkBoxConcurrentOneLoud;
+        private AntdUI.Checkbox checkBoxConcurrent;
+        private AntdUI.InputNumber numericUpDownMaxConcurrent;
+        private AntdUI.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBoxShutdown;
+        private AntdUI.Checkbox checkBoxShutdown;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private System.Windows.Forms.CheckBox checkBoxBatchSortQuiet;
-        private System.Windows.Forms.CheckBox checkBoxDiisableProtection;
-        private System.Windows.Forms.CheckBox checkBoxSimulate;
+        private AntdUI.Checkbox checkBoxBatchSortQuiet;
+        private AntdUI.Checkbox checkBoxDiisableProtection;
+        private AntdUI.Checkbox checkBoxSimulate;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.CheckBox checkBoxAutoKillQuiet;
-        private System.Windows.Forms.CheckBox checkBoxRetryQuiet;
-        private System.Windows.Forms.CheckBox checkBoxGenerate;
-        private System.Windows.Forms.CheckBox checkBoxGenerateStuck;
-        private System.Windows.Forms.CheckBox checkBoxManualNoCollisionProtection;
-        private System.Windows.Forms.CheckBox checkBoxAutoDaemon;
-        private System.Windows.Forms.CheckBox checkBoxRestorePoint;
+        private AntdUI.Checkbox checkBoxAutoKillQuiet;
+        private AntdUI.Checkbox checkBoxRetryQuiet;
+        private AntdUI.Checkbox checkBoxGenerate;
+        private AntdUI.Checkbox checkBoxGenerateStuck;
+        private AntdUI.Checkbox checkBoxManualNoCollisionProtection;
+        private AntdUI.Checkbox checkBoxAutoDaemon;
+        private AntdUI.Checkbox checkBoxRestorePoint;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }

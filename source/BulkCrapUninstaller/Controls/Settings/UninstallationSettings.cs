@@ -6,6 +6,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq.Expressions;
 using Klocman;
 using Klocman.Binding.Settings;
 using Klocman.IO;
@@ -31,30 +32,31 @@ namespace BulkCrapUninstaller.Controls
             if (Environment.OSVersion.Version < new Version(6, 0))
                 checkBoxShutdown.Enabled = false;
             else
-                sb.BindControl(checkBoxShutdown, settings => settings.UninstallPreventShutdown, this);
+                BindAntdCheck(checkBoxShutdown, settings => settings.UninstallPreventShutdown);
         
             checkBoxRestorePoint.Enabled = SysRestore.SysRestoreAvailable();
+            // Manual binding for complex RestorePoint logic
             sb.Bind(x => checkBoxRestorePoint.Checked = x != YesNoAsk.No, () => checkBoxRestorePoint.Checked &&  sb.Settings.MessagesRestorePoints != YesNoAsk.No ? sb.Settings.MessagesRestorePoints : checkBoxRestorePoint.Checked ? YesNoAsk.Ask : YesNoAsk.No,
-                    eh => checkBoxRestorePoint.CheckedChanged += eh, eh => checkBoxRestorePoint.CheckedChanged -= eh,
+                    eh => checkBoxRestorePoint.CheckedChanged += (s, e) => eh(s, e), eh => checkBoxRestorePoint.CheckedChanged -= (s, e) => eh(s, e),
                     settings => settings.MessagesRestorePoints, this);
         
-            sb.BindControl(checkBoxConcurrent, settings => settings.UninstallConcurrency, this);
+            BindAntdCheck(checkBoxConcurrent, settings => settings.UninstallConcurrency);
         
-            sb.BindControl(checkBoxConcurrentOneLoud, settings => settings.UninstallConcurrentOneLoud, this);
-            sb.BindControl(checkBoxManualNoCollisionProtection, settings => settings.UninstallConcurrentDisableManualCollisionProtection, this);
+            BindAntdCheck(checkBoxConcurrentOneLoud, settings => settings.UninstallConcurrentOneLoud);
+            BindAntdCheck(checkBoxManualNoCollisionProtection, settings => settings.UninstallConcurrentDisableManualCollisionProtection);
         
             sb.Subscribe(OnMaxCountChanged, settings => settings.UninstallConcurrentMaxCount, this);
             numericUpDownMaxConcurrent.ValueChanged += NumericUpDownMaxConcurrentOnValueChanged;
         
-            sb.BindControl(checkBoxBatchSortQuiet, x => x.AdvancedIntelligentUninstallerSorting, this);
-            sb.BindControl(checkBoxDiisableProtection, x => x.AdvancedDisableProtection, this);
-            sb.BindControl(checkBoxSimulate, x => x.AdvancedSimulate, this);
+            BindAntdCheck(checkBoxBatchSortQuiet, x => x.AdvancedIntelligentUninstallerSorting);
+            BindAntdCheck(checkBoxDiisableProtection, x => x.AdvancedDisableProtection);
+            BindAntdCheck(checkBoxSimulate, x => x.AdvancedSimulate);
         
-            sb.BindControl(checkBoxAutoKillQuiet, x => x.QuietAutoKillStuck, this);
-            sb.BindControl(checkBoxRetryQuiet, x => x.QuietRetryFailedOnce, this);
-            sb.BindControl(checkBoxGenerate, x => x.QuietAutomatization, this);
-            sb.BindControl(checkBoxGenerateStuck, x => x.QuietAutomatizationKillStuck, this);
-            sb.BindControl(checkBoxAutoDaemon, x => x.QuietUseDaemon, this);
+            BindAntdCheck(checkBoxAutoKillQuiet, x => x.QuietAutoKillStuck);
+            BindAntdCheck(checkBoxRetryQuiet, x => x.QuietRetryFailedOnce);
+            BindAntdCheck(checkBoxGenerate, x => x.QuietAutomatization);
+            BindAntdCheck(checkBoxGenerateStuck, x => x.QuietAutomatizationKillStuck);
+            BindAntdCheck(checkBoxAutoDaemon, x => x.QuietUseDaemon);
         
             sb.Subscribe((sender, args) => checkBoxGenerateStuck.Enabled = args.NewValue, settings => settings.QuietAutomatization, this);
         
@@ -66,14 +68,54 @@ namespace BulkCrapUninstaller.Controls
             Disposed += (x, y) => sb.RemoveHandlers(this);
         }
 
-        private void NumericUpDownMaxConcurrentOnValueChanged(object sender, EventArgs eventArgs)
+        private void NumericUpDownMaxConcurrentOnValueChanged(object sender, AntdUI.DecimalEventArgs e)
         {
-            Properties.Settings.Default.UninstallConcurrentMaxCount = (int)numericUpDownMaxConcurrent.Value;
+            Properties.Settings.Default.UninstallConcurrentMaxCount = (int)e.Value;
         }
 
         private void OnMaxCountChanged(object sender, SettingChangedEventArgs<int> args)
         {
             numericUpDownMaxConcurrent.Value = args.NewValue;
+        }
+
+        private void BindAntdCheck(AntdUI.Checkbox box, System.Linq.Expressions.Expression<Func<Properties.Settings, bool>> settingSelector)
+        {
+            var compiled = settingSelector.Compile();
+            var sb = Properties.Settings.Default.SettingBinder;
+            box.Checked = compiled(sb.Settings);
+
+            var memberExpr = (MemberExpression)settingSelector.Body;
+            var property = (System.Reflection.PropertyInfo)memberExpr.Member;
+
+            box.CheckedChanged += (s, e) => 
+            {
+                property.SetValue(sb.Settings, box.Checked);
+            };
+
+            sb.Subscribe((sender, args) => 
+            {
+                if (box.Checked != args.NewValue)
+                    box.Checked = args.NewValue;
+            }, settingSelector, this);
+        }
+
+        private void BindAntdNumber(AntdUI.InputNumber box, System.Linq.Expressions.Expression<Func<Properties.Settings, int>> settingSelector)
+        {
+             var compiled = settingSelector.Compile();
+             var sb = Properties.Settings.Default.SettingBinder;
+             box.Value = compiled(sb.Settings);
+
+             var memberExpr = (MemberExpression)settingSelector.Body;
+             var property = (System.Reflection.PropertyInfo)memberExpr.Member;
+
+             box.ValueChanged += (s, e) => {
+                 property.SetValue(sb.Settings, (int)e.Value);
+             };
+
+             sb.Subscribe((x, y) => 
+             {
+                 if (box.Value != y.NewValue) box.Value = y.NewValue;
+             }, settingSelector, this);
         }
     }
 }

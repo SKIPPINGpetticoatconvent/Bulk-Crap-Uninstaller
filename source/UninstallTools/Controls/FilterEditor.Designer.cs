@@ -31,14 +31,14 @@ namespace UninstallTools.Controls
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FilterEditor));
-            this.labelText = new System.Windows.Forms.Label();
+            this.labelText = new AntdUI.Label();
             this.textBoxFilterText = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxCompareMethod = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new AntdUI.Label();
+            this.comboBoxCompareMethod = new AntdUI.Select();
+            this.comboBox1 = new AntdUI.Select();
+            this.label1 = new AntdUI.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBoxInvert = new System.Windows.Forms.CheckBox();
+            this.checkBoxInvert = new AntdUI.Checkbox();
             this.searchBox1 = new Klocman.Controls.SearchBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,17 +64,15 @@ namespace UninstallTools.Controls
             // comboBoxCompareMethod
             // 
             resources.ApplyResources(this.comboBoxCompareMethod, "comboBoxCompareMethod");
-            this.comboBoxCompareMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCompareMethod.Name = "comboBoxCompareMethod";
-            this.comboBoxCompareMethod.Sorted = true;
-            this.comboBoxCompareMethod.SelectedIndexChanged += new System.EventHandler(this.comboBoxCompareMethod_SelectedIndexChanged);
+            // this.comboBoxCompareMethod.Sorted = true;
+            this.comboBoxCompareMethod.SelectedIndexChanged += new AntdUI.IntEventHandler(this.comboBoxCompareMethod_SelectedIndexChanged);
             // 
             // comboBox1
             // 
             resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.SelectedIndexChanged += new AntdUI.IntEventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -92,8 +90,8 @@ namespace UninstallTools.Controls
             // 
             resources.ApplyResources(this.checkBoxInvert, "checkBoxInvert");
             this.checkBoxInvert.Name = "checkBoxInvert";
-            this.checkBoxInvert.UseVisualStyleBackColor = true;
-            this.checkBoxInvert.CheckedChanged += new System.EventHandler(this.checkBoxInvert_CheckedChanged);
+            // this.checkBoxInvert.UseVisualStyleBackColor = true;
+            this.checkBoxInvert.CheckedChanged += new AntdUI.BoolEventHandler(this.checkBoxInvert_CheckedChanged);
             // 
             // searchBox1
             // 
@@ -128,14 +126,14 @@ namespace UninstallTools.Controls
 
         #endregion
 
-        private System.Windows.Forms.Label labelText;
+        private AntdUI.Label labelText;
         private System.Windows.Forms.TextBox textBoxFilterText;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxCompareMethod;
+        private AntdUI.Label label2;
+        private AntdUI.Select comboBoxCompareMethod;
         private Klocman.Controls.SearchBox searchBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private AntdUI.Select comboBox1;
+        private AntdUI.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox checkBoxInvert;
+        private AntdUI.Checkbox checkBoxInvert;
     }
 }

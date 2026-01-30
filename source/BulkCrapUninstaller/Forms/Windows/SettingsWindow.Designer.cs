@@ -34,78 +34,78 @@ namespace BulkCrapUninstaller.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsWindow));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBoxPreUninstall = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxPostUninstall = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxPreUninstall = new AntdUI.Input();
+            this.label5 = new AntdUI.Label();
+            this.textBoxPostUninstall = new AntdUI.Input();
+            this.label6 = new AntdUI.Label();
             this.groupBoxMisc = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxColorblind = new System.Windows.Forms.CheckBox();
-            this.checkBoxDpiaware = new System.Windows.Forms.CheckBox();
+            this.checkBoxColorblind = new AntdUI.Checkbox();
+            this.checkBoxDpiaware = new AntdUI.Checkbox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBoxDoubleClick = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkBoxAutoLoad = new System.Windows.Forms.CheckBox();
-            this.checkBoxRatings = new System.Windows.Forms.CheckBox();
-            this.checkBoxUpdateSearch = new System.Windows.Forms.CheckBox();
-            this.checkBoxSendStats = new System.Windows.Forms.CheckBox();
+            this.comboBoxDoubleClick = new AntdUI.Select();
+            this.label3 = new AntdUI.Label();
+            this.checkBoxAutoLoad = new AntdUI.Checkbox();
+            this.checkBoxRatings = new AntdUI.Checkbox();
+            this.checkBoxUpdateSearch = new AntdUI.Checkbox();
+            this.checkBoxSendStats = new AntdUI.Checkbox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxLanguage = new AntdUI.Select();
+            this.label9 = new AntdUI.Label();
+            this.label10 = new AntdUI.Label();
             this.groupBoxMessages = new System.Windows.Forms.GroupBox();
             this.groupBoxBackup = new System.Windows.Forms.GroupBox();
             this.directorySelectBoxBackup = new Klocman.Controls.DirectorySelectBox();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButtonBackupAsk = new System.Windows.Forms.RadioButton();
-            this.radioButtonBackupNever = new System.Windows.Forms.RadioButton();
-            this.radioButtonBackupAuto = new System.Windows.Forms.RadioButton();
+            this.radioButtonBackupAsk = new AntdUI.Radio();
+            this.radioButtonBackupNever = new AntdUI.Radio();
+            this.radioButtonBackupAuto = new AntdUI.Radio();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxShowAllBadJunk = new System.Windows.Forms.CheckBox();
-            this.checkBoxLoud = new System.Windows.Forms.CheckBox();
-            this.checkBoxNeverFeedback = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowAllBadJunk = new AntdUI.Checkbox();
+            this.checkBoxLoud = new AntdUI.Checkbox();
+            this.checkBoxNeverFeedback = new AntdUI.Checkbox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxJunk = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxJunk = new AntdUI.Select();
+            this.label1 = new AntdUI.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBoxRestore = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxRestore = new AntdUI.Select();
+            this.label2 = new AntdUI.Label();
             this.groupBoxExternal = new System.Windows.Forms.GroupBox();
-            this.checkBoxEnableExternal = new System.Windows.Forms.CheckBox();
+            this.checkBoxEnableExternal = new AntdUI.Checkbox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.label7 = new AntdUI.Label();
+            this.button2 = new AntdUI.Button();
+            this.tabControl = new AntdUI.Tabs();
+            this.tabPageGeneral = new AntdUI.TabPage();
             this.propertiesSidebar1 = new BulkCrapUninstaller.Controls.PropertiesSidebar();
-            this.tabPageInterface = new System.Windows.Forms.TabPage();
+            this.tabPageInterface = new AntdUI.TabPage();
             this.groupBoxLanguage = new System.Windows.Forms.GroupBox();
-            this.tabPageUninstallation = new System.Windows.Forms.TabPage();
+            this.tabPageUninstallation = new AntdUI.TabPage();
             this.uninstallationSettings1 = new BulkCrapUninstaller.Controls.UninstallationSettings();
-            this.tabPageDetection = new System.Windows.Forms.TabPage();
+            this.tabPageDetection = new AntdUI.TabPage();
             this.groupBoxAppStores = new System.Windows.Forms.GroupBox();
-            this.labelWinUpdateInfo = new System.Windows.Forms.Label();
-            this.checkBoxScanWinUpdates = new System.Windows.Forms.CheckBox();
-            this.labelWinFeatureInfo = new System.Windows.Forms.Label();
-            this.checkBoxScanWinFeatures = new System.Windows.Forms.CheckBox();
-            this.checkBoxScanStoreApps = new System.Windows.Forms.CheckBox();
-            this.checkBoxScanSteam = new System.Windows.Forms.CheckBox();
-            this.checkBoxScoop = new System.Windows.Forms.CheckBox();
-            this.checkBoxOculus = new System.Windows.Forms.CheckBox();
-            this.checkBoxChoco = new System.Windows.Forms.CheckBox();
+            this.labelWinUpdateInfo = new AntdUI.Label();
+            this.checkBoxScanWinUpdates = new AntdUI.Checkbox();
+            this.labelWinFeatureInfo = new AntdUI.Label();
+            this.checkBoxScanWinFeatures = new AntdUI.Checkbox();
+            this.checkBoxScanStoreApps = new AntdUI.Checkbox();
+            this.checkBoxScanSteam = new AntdUI.Checkbox();
+            this.checkBoxScoop = new AntdUI.Checkbox();
+            this.checkBoxOculus = new AntdUI.Checkbox();
+            this.checkBoxChoco = new AntdUI.Checkbox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxScanRegistry = new System.Windows.Forms.CheckBox();
-            this.checkBoxScanDrives = new System.Windows.Forms.CheckBox();
-            this.checkBoxPreDefined = new System.Windows.Forms.CheckBox();
-            this.tabPageExternal = new System.Windows.Forms.TabPage();
-            this.tabPageFolders = new System.Windows.Forms.TabPage();
+            this.checkBoxScanRegistry = new AntdUI.Checkbox();
+            this.checkBoxScanDrives = new AntdUI.Checkbox();
+            this.checkBoxPreDefined = new AntdUI.Checkbox();
+            this.tabPageExternal = new AntdUI.TabPage();
+            this.tabPageFolders = new AntdUI.TabPage();
             this.groupBoxProgramFolders = new System.Windows.Forms.GroupBox();
-            this.textBoxProgramFolders = new System.Windows.Forms.TextBox();
-            this.checkBoxRemovable = new System.Windows.Forms.CheckBox();
-            this.checkBoxAutoInstallFolderDetect = new System.Windows.Forms.CheckBox();
-            this.labelProgramFolders = new System.Windows.Forms.Label();
-            this.tabPageMisc = new System.Windows.Forms.TabPage();
+            this.textBoxProgramFolders = new AntdUI.Input();
+            this.checkBoxRemovable = new AntdUI.Checkbox();
+            this.checkBoxAutoInstallFolderDetect = new AntdUI.Checkbox();
+            this.labelProgramFolders = new AntdUI.Label();
+            this.tabPageMisc = new AntdUI.TabPage();
             this.cacheSettings1 = new BulkCrapUninstaller.Controls.Settings.CacheSettings();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -204,13 +204,13 @@ namespace BulkCrapUninstaller.Forms
             // 
             resources.ApplyResources(this.checkBoxColorblind, "checkBoxColorblind");
             this.checkBoxColorblind.Name = "checkBoxColorblind";
-            this.checkBoxColorblind.UseVisualStyleBackColor = true;
+//             this.checkBoxColorblind.UseVisualStyleBackColor = true;
             // 
             // checkBoxDpiaware
             // 
             resources.ApplyResources(this.checkBoxDpiaware, "checkBoxDpiaware");
             this.checkBoxDpiaware.Name = "checkBoxDpiaware";
-            this.checkBoxDpiaware.UseVisualStyleBackColor = true;
+//             this.checkBoxDpiaware.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -222,10 +222,10 @@ namespace BulkCrapUninstaller.Forms
             // comboBoxDoubleClick
             // 
             resources.ApplyResources(this.comboBoxDoubleClick, "comboBoxDoubleClick");
-            this.comboBoxDoubleClick.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDoubleClick.FormattingEnabled = true;
+            // this.comboBoxDoubleClick.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+//             this.comboBoxDoubleClick.FormattingEnabled = true;
             this.comboBoxDoubleClick.Name = "comboBoxDoubleClick";
-            this.comboBoxDoubleClick.SelectedIndexChanged += new System.EventHandler(this.comboBoxDoubleClick_SelectedIndexChanged);
+            this.comboBoxDoubleClick.SelectedIndexChanged += new AntdUI.IntEventHandler(this.comboBoxDoubleClick_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -236,25 +236,25 @@ namespace BulkCrapUninstaller.Forms
             // 
             resources.ApplyResources(this.checkBoxAutoLoad, "checkBoxAutoLoad");
             this.checkBoxAutoLoad.Name = "checkBoxAutoLoad";
-            this.checkBoxAutoLoad.UseVisualStyleBackColor = true;
+//             this.checkBoxAutoLoad.UseVisualStyleBackColor = true;
             // 
             // checkBoxRatings
             // 
             resources.ApplyResources(this.checkBoxRatings, "checkBoxRatings");
             this.checkBoxRatings.Name = "checkBoxRatings";
-            this.checkBoxRatings.UseVisualStyleBackColor = true;
+//             this.checkBoxRatings.UseVisualStyleBackColor = true;
             // 
             // checkBoxUpdateSearch
             // 
             resources.ApplyResources(this.checkBoxUpdateSearch, "checkBoxUpdateSearch");
             this.checkBoxUpdateSearch.Name = "checkBoxUpdateSearch";
-            this.checkBoxUpdateSearch.UseVisualStyleBackColor = true;
+//             this.checkBoxUpdateSearch.UseVisualStyleBackColor = true;
             // 
             // checkBoxSendStats
             // 
             resources.ApplyResources(this.checkBoxSendStats, "checkBoxSendStats");
             this.checkBoxSendStats.Name = "checkBoxSendStats";
-            this.checkBoxSendStats.UseVisualStyleBackColor = true;
+//             this.checkBoxSendStats.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -266,10 +266,10 @@ namespace BulkCrapUninstaller.Forms
             // comboBoxLanguage
             // 
             resources.ApplyResources(this.comboBoxLanguage, "comboBoxLanguage");
-            this.comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLanguage.FormattingEnabled = true;
+            // this.comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+//             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Name = "comboBoxLanguage";
-            this.comboBoxLanguage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLanguage_SelectedIndexChanged);
+            this.comboBoxLanguage.SelectedIndexChanged += new AntdUI.IntEventHandler(this.comboBoxLanguage_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -319,8 +319,8 @@ namespace BulkCrapUninstaller.Forms
             this.flowLayoutPanel9.SetFlowBreak(this.radioButtonBackupAsk, true);
             this.radioButtonBackupAsk.Name = "radioButtonBackupAsk";
             this.radioButtonBackupAsk.TabStop = true;
-            this.radioButtonBackupAsk.UseVisualStyleBackColor = true;
-            this.radioButtonBackupAsk.CheckedChanged += new System.EventHandler(this.radioButtonBackup_CheckedChanged);
+//             this.radioButtonBackupAsk.UseVisualStyleBackColor = true;
+            this.radioButtonBackupAsk.CheckedChanged += new AntdUI.BoolEventHandler(this.radioButtonBackup_CheckedChanged);
             // 
             // radioButtonBackupNever
             // 
@@ -328,8 +328,8 @@ namespace BulkCrapUninstaller.Forms
             this.flowLayoutPanel9.SetFlowBreak(this.radioButtonBackupNever, true);
             this.radioButtonBackupNever.Name = "radioButtonBackupNever";
             this.radioButtonBackupNever.TabStop = true;
-            this.radioButtonBackupNever.UseVisualStyleBackColor = true;
-            this.radioButtonBackupNever.CheckedChanged += new System.EventHandler(this.radioButtonBackup_CheckedChanged);
+//             this.radioButtonBackupNever.UseVisualStyleBackColor = true;
+            this.radioButtonBackupNever.CheckedChanged += new AntdUI.BoolEventHandler(this.radioButtonBackup_CheckedChanged);
             // 
             // radioButtonBackupAuto
             // 
@@ -337,8 +337,8 @@ namespace BulkCrapUninstaller.Forms
             this.flowLayoutPanel9.SetFlowBreak(this.radioButtonBackupAuto, true);
             this.radioButtonBackupAuto.Name = "radioButtonBackupAuto";
             this.radioButtonBackupAuto.TabStop = true;
-            this.radioButtonBackupAuto.UseVisualStyleBackColor = true;
-            this.radioButtonBackupAuto.CheckedChanged += new System.EventHandler(this.radioButtonBackup_CheckedChanged);
+//             this.radioButtonBackupAuto.UseVisualStyleBackColor = true;
+            this.radioButtonBackupAuto.CheckedChanged += new AntdUI.BoolEventHandler(this.radioButtonBackup_CheckedChanged);
             // 
             // flowLayoutPanel1
             // 
@@ -352,19 +352,19 @@ namespace BulkCrapUninstaller.Forms
             // 
             resources.ApplyResources(this.checkBoxShowAllBadJunk, "checkBoxShowAllBadJunk");
             this.checkBoxShowAllBadJunk.Name = "checkBoxShowAllBadJunk";
-            this.checkBoxShowAllBadJunk.UseVisualStyleBackColor = true;
+//             this.checkBoxShowAllBadJunk.UseVisualStyleBackColor = true;
             // 
             // checkBoxLoud
             // 
             resources.ApplyResources(this.checkBoxLoud, "checkBoxLoud");
             this.checkBoxLoud.Name = "checkBoxLoud";
-            this.checkBoxLoud.UseVisualStyleBackColor = true;
+//             this.checkBoxLoud.UseVisualStyleBackColor = true;
             // 
             // checkBoxNeverFeedback
             // 
             resources.ApplyResources(this.checkBoxNeverFeedback, "checkBoxNeverFeedback");
             this.checkBoxNeverFeedback.Name = "checkBoxNeverFeedback";
-            this.checkBoxNeverFeedback.UseVisualStyleBackColor = true;
+//             this.checkBoxNeverFeedback.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -376,10 +376,10 @@ namespace BulkCrapUninstaller.Forms
             // comboBoxJunk
             // 
             resources.ApplyResources(this.comboBoxJunk, "comboBoxJunk");
-            this.comboBoxJunk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxJunk.FormattingEnabled = true;
+            // this.comboBoxJunk.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+//             this.comboBoxJunk.FormattingEnabled = true;
             this.comboBoxJunk.Name = "comboBoxJunk";
-            this.comboBoxJunk.SelectedIndexChanged += new System.EventHandler(this.comboBoxJunk_SelectedIndexChanged);
+            this.comboBoxJunk.SelectedIndexChanged += new AntdUI.IntEventHandler(this.comboBoxJunk_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -396,10 +396,10 @@ namespace BulkCrapUninstaller.Forms
             // comboBoxRestore
             // 
             resources.ApplyResources(this.comboBoxRestore, "comboBoxRestore");
-            this.comboBoxRestore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRestore.FormattingEnabled = true;
+            // this.comboBoxRestore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+//             this.comboBoxRestore.FormattingEnabled = true;
             this.comboBoxRestore.Name = "comboBoxRestore";
-            this.comboBoxRestore.SelectedIndexChanged += new System.EventHandler(this.comboBoxRestore_SelectedIndexChanged);
+            this.comboBoxRestore.SelectedIndexChanged += new AntdUI.IntEventHandler(this.comboBoxRestore_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -421,8 +421,8 @@ namespace BulkCrapUninstaller.Forms
             this.checkBoxEnableExternal.Checked = true;
             this.checkBoxEnableExternal.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxEnableExternal.Name = "checkBoxEnableExternal";
-            this.checkBoxEnableExternal.UseVisualStyleBackColor = true;
-            this.checkBoxEnableExternal.CheckedChanged += new System.EventHandler(this.checkBoxEnableExternal_CheckedChanged);
+//             this.checkBoxEnableExternal.UseVisualStyleBackColor = true;
+            this.checkBoxEnableExternal.CheckedChanged += new AntdUI.BoolEventHandler(this.checkBoxEnableExternal_CheckedChanged);
             // 
             // flowLayoutPanel2
             // 
@@ -440,31 +440,32 @@ namespace BulkCrapUninstaller.Forms
             resources.ApplyResources(this.button2, "button2");
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            // this.button2.UseVisualStyleBackColor = true;
+            this.button2.Type = AntdUI.TTypeMini.Primary;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPageGeneral);
-            this.tabControl.Controls.Add(this.tabPageInterface);
-            this.tabControl.Controls.Add(this.tabPageUninstallation);
-            this.tabControl.Controls.Add(this.tabPageDetection);
-            this.tabControl.Controls.Add(this.tabPageExternal);
-            this.tabControl.Controls.Add(this.tabPageFolders);
-            this.tabControl.Controls.Add(this.tabPageMisc);
+            this.tabControl.Pages.Add(this.tabPageGeneral);
+            this.tabControl.Pages.Add(this.tabPageInterface);
+            this.tabControl.Pages.Add(this.tabPageUninstallation);
+            this.tabControl.Pages.Add(this.tabPageDetection);
+            this.tabControl.Pages.Add(this.tabPageExternal);
+            this.tabControl.Pages.Add(this.tabPageFolders);
+            this.tabControl.Pages.Add(this.tabPageMisc);
             resources.ApplyResources(this.tabControl, "tabControl");
-            this.tabControl.Multiline = true;
+            // this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
+            // this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tabControl.SelectedIndexChanged += new AntdUI.IntEventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPageGeneral
             // 
             this.tabPageGeneral.Controls.Add(this.propertiesSidebar1);
             resources.ApplyResources(this.tabPageGeneral, "tabPageGeneral");
             this.tabPageGeneral.Name = "tabPageGeneral";
-            this.tabPageGeneral.UseVisualStyleBackColor = true;
+//             this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
             // propertiesSidebar1
             // 
@@ -486,7 +487,7 @@ namespace BulkCrapUninstaller.Forms
             this.tabPageInterface.Controls.Add(this.groupBoxMessages);
             this.tabPageInterface.Controls.Add(this.groupBoxLanguage);
             this.tabPageInterface.Name = "tabPageInterface";
-            this.tabPageInterface.UseVisualStyleBackColor = true;
+//             this.tabPageInterface.UseVisualStyleBackColor = true;
             // 
             // groupBoxLanguage
             // 
@@ -501,7 +502,7 @@ namespace BulkCrapUninstaller.Forms
             resources.ApplyResources(this.tabPageUninstallation, "tabPageUninstallation");
             this.tabPageUninstallation.Controls.Add(this.uninstallationSettings1);
             this.tabPageUninstallation.Name = "tabPageUninstallation";
-            this.tabPageUninstallation.UseVisualStyleBackColor = true;
+//             this.tabPageUninstallation.UseVisualStyleBackColor = true;
             // 
             // uninstallationSettings1
             // 
@@ -514,7 +515,7 @@ namespace BulkCrapUninstaller.Forms
             this.tabPageDetection.Controls.Add(this.groupBoxAppStores);
             this.tabPageDetection.Controls.Add(this.groupBox1);
             this.tabPageDetection.Name = "tabPageDetection";
-            this.tabPageDetection.UseVisualStyleBackColor = true;
+//             this.tabPageDetection.UseVisualStyleBackColor = true;
             // 
             // groupBoxAppStores
             // 
@@ -540,7 +541,7 @@ namespace BulkCrapUninstaller.Forms
             // 
             resources.ApplyResources(this.checkBoxScanWinUpdates, "checkBoxScanWinUpdates");
             this.checkBoxScanWinUpdates.Name = "checkBoxScanWinUpdates";
-            this.checkBoxScanWinUpdates.UseVisualStyleBackColor = true;
+//             this.checkBoxScanWinUpdates.UseVisualStyleBackColor = true;
             // 
             // labelWinFeatureInfo
             // 
@@ -551,37 +552,37 @@ namespace BulkCrapUninstaller.Forms
             // 
             resources.ApplyResources(this.checkBoxScanWinFeatures, "checkBoxScanWinFeatures");
             this.checkBoxScanWinFeatures.Name = "checkBoxScanWinFeatures";
-            this.checkBoxScanWinFeatures.UseVisualStyleBackColor = true;
+//             this.checkBoxScanWinFeatures.UseVisualStyleBackColor = true;
             // 
             // checkBoxScanStoreApps
             // 
             resources.ApplyResources(this.checkBoxScanStoreApps, "checkBoxScanStoreApps");
             this.checkBoxScanStoreApps.Name = "checkBoxScanStoreApps";
-            this.checkBoxScanStoreApps.UseVisualStyleBackColor = true;
+//             this.checkBoxScanStoreApps.UseVisualStyleBackColor = true;
             // 
             // checkBoxScanSteam
             // 
             resources.ApplyResources(this.checkBoxScanSteam, "checkBoxScanSteam");
             this.checkBoxScanSteam.Name = "checkBoxScanSteam";
-            this.checkBoxScanSteam.UseVisualStyleBackColor = true;
+//             this.checkBoxScanSteam.UseVisualStyleBackColor = true;
             // 
             // checkBoxScoop
             // 
             resources.ApplyResources(this.checkBoxScoop, "checkBoxScoop");
             this.checkBoxScoop.Name = "checkBoxScoop";
-            this.checkBoxScoop.UseVisualStyleBackColor = true;
+//             this.checkBoxScoop.UseVisualStyleBackColor = true;
             // 
             // checkBoxOculus
             // 
             resources.ApplyResources(this.checkBoxOculus, "checkBoxOculus");
             this.checkBoxOculus.Name = "checkBoxOculus";
-            this.checkBoxOculus.UseVisualStyleBackColor = true;
+//             this.checkBoxOculus.UseVisualStyleBackColor = true;
             // 
             // checkBoxChoco
             // 
             resources.ApplyResources(this.checkBoxChoco, "checkBoxChoco");
             this.checkBoxChoco.Name = "checkBoxChoco";
-            this.checkBoxChoco.UseVisualStyleBackColor = true;
+//             this.checkBoxChoco.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -603,35 +604,35 @@ namespace BulkCrapUninstaller.Forms
             resources.ApplyResources(this.checkBoxScanRegistry, "checkBoxScanRegistry");
             this.flowLayoutPanel7.SetFlowBreak(this.checkBoxScanRegistry, true);
             this.checkBoxScanRegistry.Name = "checkBoxScanRegistry";
-            this.checkBoxScanRegistry.UseVisualStyleBackColor = true;
+//             this.checkBoxScanRegistry.UseVisualStyleBackColor = true;
             // 
             // checkBoxScanDrives
             // 
             resources.ApplyResources(this.checkBoxScanDrives, "checkBoxScanDrives");
             this.flowLayoutPanel7.SetFlowBreak(this.checkBoxScanDrives, true);
             this.checkBoxScanDrives.Name = "checkBoxScanDrives";
-            this.checkBoxScanDrives.UseVisualStyleBackColor = true;
+//             this.checkBoxScanDrives.UseVisualStyleBackColor = true;
             // 
             // checkBoxPreDefined
             // 
             resources.ApplyResources(this.checkBoxPreDefined, "checkBoxPreDefined");
             this.flowLayoutPanel7.SetFlowBreak(this.checkBoxPreDefined, true);
             this.checkBoxPreDefined.Name = "checkBoxPreDefined";
-            this.checkBoxPreDefined.UseVisualStyleBackColor = true;
+//             this.checkBoxPreDefined.UseVisualStyleBackColor = true;
             // 
             // tabPageExternal
             // 
             this.tabPageExternal.Controls.Add(this.groupBoxExternal);
             resources.ApplyResources(this.tabPageExternal, "tabPageExternal");
             this.tabPageExternal.Name = "tabPageExternal";
-            this.tabPageExternal.UseVisualStyleBackColor = true;
+//             this.tabPageExternal.UseVisualStyleBackColor = true;
             // 
             // tabPageFolders
             // 
             this.tabPageFolders.Controls.Add(this.groupBoxProgramFolders);
             resources.ApplyResources(this.tabPageFolders, "tabPageFolders");
             this.tabPageFolders.Name = "tabPageFolders";
-            this.tabPageFolders.UseVisualStyleBackColor = true;
+//             this.tabPageFolders.UseVisualStyleBackColor = true;
             // 
             // groupBoxProgramFolders
             // 
@@ -652,13 +653,13 @@ namespace BulkCrapUninstaller.Forms
             // 
             resources.ApplyResources(this.checkBoxRemovable, "checkBoxRemovable");
             this.checkBoxRemovable.Name = "checkBoxRemovable";
-            this.checkBoxRemovable.UseVisualStyleBackColor = true;
+//             this.checkBoxRemovable.UseVisualStyleBackColor = true;
             // 
             // checkBoxAutoInstallFolderDetect
             // 
             resources.ApplyResources(this.checkBoxAutoInstallFolderDetect, "checkBoxAutoInstallFolderDetect");
             this.checkBoxAutoInstallFolderDetect.Name = "checkBoxAutoInstallFolderDetect";
-            this.checkBoxAutoInstallFolderDetect.UseVisualStyleBackColor = true;
+//             this.checkBoxAutoInstallFolderDetect.UseVisualStyleBackColor = true;
             // 
             // labelProgramFolders
             // 
@@ -672,7 +673,7 @@ namespace BulkCrapUninstaller.Forms
             this.tabPageMisc.Controls.Add(this.groupBox3);
             resources.ApplyResources(this.tabPageMisc, "tabPageMisc");
             this.tabPageMisc.Name = "tabPageMisc";
-            this.tabPageMisc.UseVisualStyleBackColor = true;
+//             this.tabPageMisc.UseVisualStyleBackColor = true;
             // 
             // cacheSettings1
             // 
@@ -800,84 +801,84 @@ namespace BulkCrapUninstaller.Forms
         #endregion
 
         private GroupBox groupBoxMessages;
-        private CheckBox checkBoxLoud;
-        private ComboBox comboBoxRestore;
-        private ComboBox comboBoxJunk;
-        private Label label2;
-        private Label label1;
-        private Button button2;
+        private AntdUI.Checkbox checkBoxLoud;
+        private AntdUI.Select comboBoxRestore;
+        private AntdUI.Select comboBoxJunk;
+        private AntdUI.Label label2;
+        private AntdUI.Label label1;
+        private AntdUI.Button button2;
         private GroupBox groupBoxMisc;
-        private CheckBox checkBoxUpdateSearch;
+        private AntdUI.Checkbox checkBoxUpdateSearch;
         private UsageTracker usageTracker1;
         private GroupBox groupBoxExternal;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel1;
         private Panel panel2;
         private FlowLayoutPanel flowLayoutPanel3;
-        private CheckBox checkBoxSendStats;
+        private AntdUI.Checkbox checkBoxSendStats;
         private FlowLayoutPanel flowLayoutPanel2;
-        private Label label5;
-        private TextBox textBoxPreUninstall;
-        private Label label6;
-        private TextBox textBoxPostUninstall;
-        private Label label7;
-        private CheckBox checkBoxEnableExternal;
+        private AntdUI.Label label5;
+        private AntdUI.Input textBoxPreUninstall;
+        private AntdUI.Label label6;
+        private AntdUI.Input textBoxPostUninstall;
+        private AntdUI.Label label7;
+        private AntdUI.Checkbox checkBoxEnableExternal;
         private Panel panel3;
-        private ComboBox comboBoxLanguage;
-        private Label label9;
-        private Label label10;
+        private AntdUI.Select comboBoxLanguage;
+        private AntdUI.Label label9;
+        private AntdUI.Label label10;
         private SplitContainer splitContainer1;
-        private TabControl tabControl;
-        private TabPage tabPageMisc;
-        private TabPage tabPageExternal;
+        private AntdUI.Tabs tabControl;
+        private AntdUI.TabPage tabPageMisc;
+        private AntdUI.TabPage tabPageExternal;
         private Panel panel4;
-        private TabPage tabPageGeneral;
+        private AntdUI.TabPage tabPageGeneral;
         private Controls.PropertiesSidebar propertiesSidebar1;
-        private TabPage tabPageFolders;
+        private AntdUI.TabPage tabPageFolders;
         private GroupBox groupBoxProgramFolders;
-        private Label labelProgramFolders;
-        private TextBox textBoxProgramFolders;
-        private CheckBox checkBoxAutoLoad;
-        private CheckBox checkBoxRatings;
-        private TabPage tabPageUninstallation;
+        private AntdUI.Label labelProgramFolders;
+        private AntdUI.Input textBoxProgramFolders;
+        private AntdUI.Checkbox checkBoxAutoLoad;
+        private AntdUI.Checkbox checkBoxRatings;
+        private AntdUI.TabPage tabPageUninstallation;
         private Controls.UninstallationSettings uninstallationSettings1;
-        private CheckBox checkBoxShowAllBadJunk;
-        private CheckBox checkBoxNeverFeedback;
-        private TabPage tabPageDetection;
+        private AntdUI.Checkbox checkBoxShowAllBadJunk;
+        private AntdUI.Checkbox checkBoxNeverFeedback;
+        private AntdUI.TabPage tabPageDetection;
         private GroupBox groupBoxAppStores;
-        private CheckBox checkBoxScanSteam;
-        private CheckBox checkBoxScanStoreApps;
-        private CheckBox checkBoxScanWinFeatures;
-        private CheckBox checkBoxScanWinUpdates;
-        private Label labelWinFeatureInfo;
-        private Label labelWinUpdateInfo;
-        private CheckBox checkBoxAutoInstallFolderDetect;
+        private AntdUI.Checkbox checkBoxScanSteam;
+        private AntdUI.Checkbox checkBoxScanStoreApps;
+        private AntdUI.Checkbox checkBoxScanWinFeatures;
+        private AntdUI.Checkbox checkBoxScanWinUpdates;
+        private AntdUI.Label labelWinFeatureInfo;
+        private AntdUI.Label labelWinUpdateInfo;
+        private AntdUI.Checkbox checkBoxAutoInstallFolderDetect;
         private GroupBox groupBox1;
         private FlowLayoutPanel flowLayoutPanel7;
-        private CheckBox checkBoxScanRegistry;
-        private CheckBox checkBoxScanDrives;
-        private CheckBox checkBoxPreDefined;
-        private TabPage tabPageInterface;
+        private AntdUI.Checkbox checkBoxScanRegistry;
+        private AntdUI.Checkbox checkBoxScanDrives;
+        private AntdUI.Checkbox checkBoxPreDefined;
+        private AntdUI.TabPage tabPageInterface;
         private GroupBox groupBoxLanguage;
         private GroupBox groupBoxBackup;
         private FlowLayoutPanel flowLayoutPanel9;
-        private RadioButton radioButtonBackupAsk;
-        private RadioButton radioButtonBackupNever;
-        private RadioButton radioButtonBackupAuto;
+        private AntdUI.Radio radioButtonBackupAsk;
+        private AntdUI.Radio radioButtonBackupNever;
+        private AntdUI.Radio radioButtonBackupAuto;
         private Klocman.Controls.DirectorySelectBox directorySelectBoxBackup;
         private Controls.Settings.CacheSettings cacheSettings1;
         private GroupBox groupBox3;
         private FlowLayoutPanel flowLayoutPanel10;
-        private CheckBox checkBoxChoco;
-        private CheckBox checkBoxOculus;
-        private CheckBox checkBoxRemovable;
-        private CheckBox checkBoxColorblind;
-        private CheckBox checkBoxScoop;
-        private CheckBox checkBoxDpiaware;
+        private AntdUI.Checkbox checkBoxChoco;
+        private AntdUI.Checkbox checkBoxOculus;
+        private AntdUI.Checkbox checkBoxRemovable;
+        private AntdUI.Checkbox checkBoxColorblind;
+        private AntdUI.Checkbox checkBoxScoop;
+        private AntdUI.Checkbox checkBoxDpiaware;
         private GroupBox groupBox2;
         private FlowLayoutPanel flowLayoutPanel4;
         private Panel panel5;
-        private ComboBox comboBoxDoubleClick;
-        private Label label3;
+        private AntdUI.Select comboBoxDoubleClick;
+        private AntdUI.Label label3;
     }
 }

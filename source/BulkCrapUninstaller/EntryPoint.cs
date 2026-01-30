@@ -59,6 +59,11 @@ namespace BulkCrapUninstaller
 
                     SetupDependancies();
 
+                    // Set default font for modern look (User Request)
+                    // "Microsoft YaHei UI" is preferred for Chinese UI, falls back gracefully usually.
+                    // Using 9pt which is standard.
+                    Application.SetDefaultFont(new Font("Microsoft YaHei UI", 9F));
+
                     if(Properties.Settings.Default.WindowDpiAware)
                         Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 

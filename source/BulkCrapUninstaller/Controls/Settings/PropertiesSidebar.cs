@@ -6,6 +6,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Linq.Expressions;
 using System.Windows.Forms;
 using Klocman.Binding.Settings;
 
@@ -26,21 +27,21 @@ namespace BulkCrapUninstaller.Controls
 
             if (DesignMode) return;
 
-            _settings.BindControl(checkBoxViewCheckboxes, x => x.UninstallerListUseCheckboxes, this);
-            _settings.BindControl(checkBoxViewGroups, x => x.UninstallerListUseGroups, this);
+            BindAntdCheck(checkBoxViewCheckboxes, x => x.UninstallerListUseCheckboxes);
+            BindAntdCheck(checkBoxViewGroups, x => x.UninstallerListUseGroups);
 
-            _settings.BindControl(checkBoxListHideMicrosoft, x => x.FilterHideMicrosoft, this);
-            _settings.BindControl(checkBoxShowUpdates, x => x.FilterShowUpdates, this);
-            _settings.BindControl(checkBoxListSysComp, x => x.FilterShowSystemComponents, this);
-            _settings.BindControl(checkBoxListProtected, x => x.FilterShowProtected, this);
-            _settings.BindControl(checkBoxShowStoreApps, x => x.FilterShowStoreApps, this);
-            _settings.BindControl(checkBoxWinFeature, x => x.FilterShowWinFeatures, this);
-            _settings.BindControl(checkBoxTweaks, x => x.FilterShowTweaks, this);
+            BindAntdCheck(checkBoxListHideMicrosoft, x => x.FilterHideMicrosoft);
+            BindAntdCheck(checkBoxShowUpdates, x => x.FilterShowUpdates);
+            BindAntdCheck(checkBoxListSysComp, x => x.FilterShowSystemComponents);
+            BindAntdCheck(checkBoxListProtected, x => x.FilterShowProtected);
+            BindAntdCheck(checkBoxShowStoreApps, x => x.FilterShowStoreApps);
+            BindAntdCheck(checkBoxWinFeature, x => x.FilterShowWinFeatures);
+            BindAntdCheck(checkBoxTweaks, x => x.FilterShowTweaks);
 
-            _settings.BindControl(checkBoxInvalidTest, x => x.AdvancedTestInvalid, this);
-            _settings.BindControl(checkBoxCertTest, x => x.AdvancedTestCertificates, this);
-            _settings.BindControl(checkBoxOrphans, x => x.AdvancedDisplayOrphans, this);
-            _settings.BindControl(checkBoxHighlightSpecial, x => x.AdvancedHighlightSpecial, this);
+            BindAntdCheck(checkBoxInvalidTest, x => x.AdvancedTestInvalid);
+            BindAntdCheck(checkBoxCertTest, x => x.AdvancedTestCertificates);
+            BindAntdCheck(checkBoxOrphans, x => x.AdvancedDisplayOrphans);
+            BindAntdCheck(checkBoxHighlightSpecial, x => x.AdvancedHighlightSpecial);
 
             _settings.SendUpdates(this);
             Disposed += (x, y) => _settings.RemoveHandlers(this);
@@ -51,12 +52,32 @@ namespace BulkCrapUninstaller.Controls
         {
             var maxWidth = typeof(PropertiesSidebar)
                 .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                .Where(x => x.FieldType == typeof(CheckBox))
+                .Where(x => x.FieldType == typeof(AntdUI.Checkbox))
                 .Select(x => x.GetValue(this))
-                .Cast<CheckBox>()
+                .Cast<AntdUI.Checkbox>()
                 .Max(c => c.Width);
 
             return maxWidth + (groupBox1.Width - groupBox1.DisplayRectangle.Width) + Padding.Left + Padding.Right;
+        }
+
+        private void BindAntdCheck(AntdUI.Checkbox box, System.Linq.Expressions.Expression<System.Func<Properties.Settings, bool>> settingSelector)
+        {
+            var compiled = settingSelector.Compile();
+            box.Checked = compiled(_settings.Settings);
+
+            var memberExpr = (MemberExpression)settingSelector.Body;
+            var property = (System.Reflection.PropertyInfo)memberExpr.Member;
+
+            box.CheckedChanged += (s, e) => 
+            {
+                property.SetValue(_settings.Settings, box.Checked);
+            };
+
+            _settings.Subscribe((sender, args) => 
+            {
+                if (box.Checked != args.NewValue)
+                    box.Checked = args.NewValue;
+            }, settingSelector, this);
         }
 
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]

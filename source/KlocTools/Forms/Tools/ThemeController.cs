@@ -26,12 +26,33 @@ namespace Klocman.Forms.Tools
             return Color.FromArgb(color.A, r, g, b);
         }
 
-        private static readonly Color LightBackground = SystemColors.Control;
-        private static readonly Color LightForeground = SystemColors.ControlText;
-        private static readonly Color DarkBackground = Color.FromArgb(30, 30, 30);
-        private static readonly Color DarkForeground = Color.FromArgb(212, 212, 212);
-        private static readonly Color DarkControlBackground = Color.FromArgb(45, 45, 48);
-        private static readonly Color DarkControlForeground = Color.White;
+        public static class Palette
+        {
+            public static readonly Color LightBackground = SystemColors.Control;
+            public static readonly Color LightForeground = SystemColors.ControlText;
+
+            // Updated to match AntdUI/VS Code style (Flatter, #1F1F1F)
+            public static readonly Color DarkBackground = Color.FromArgb(31, 31, 31); 
+            public static readonly Color DarkForeground = Color.FromArgb(220, 220, 220);
+            
+            // Panels/Containers
+            public static readonly Color DarkPanelBackground = Color.FromArgb(45, 45, 48); // Slightly lighter for contrast or Sidebar
+
+            // Controls (Input, List)
+            public static readonly Color DarkControlBackground = Color.FromArgb(40, 40, 40);
+            public static readonly Color DarkControlForeground = Color.FromArgb(240, 240, 240);
+            
+            // Accents
+            public static readonly Color DarkAccent = Color.FromArgb(24, 144, 255); // Ant Design Blue
+            public static readonly Color DarkBorder = Color.FromArgb(60, 60, 60);
+        }
+
+        private static readonly Color LightBackground = Palette.LightBackground;
+        private static readonly Color LightForeground = Palette.LightForeground;
+        private static readonly Color DarkBackground = Palette.DarkBackground;
+        private static readonly Color DarkForeground = Palette.DarkForeground;
+        private static readonly Color DarkControlBackground = Palette.DarkControlBackground;
+        private static readonly Color DarkControlForeground = Palette.DarkControlForeground;
 
         private readonly Form _referenceForm;
         private Theme _currentTheme;
@@ -85,22 +106,34 @@ namespace Klocman.Forms.Tools
                 control.BackColor = DarkBackground;
                 control.ForeColor = DarkForeground;
 
-                if (control is TextBox || control is ListBox || control is ComboBox || control is TreeView)
+                if (control is TextBox || control is ListBox || control is ComboBox || 
+                    control is TreeView || control is ListView)
                 {
                     control.BackColor = DarkControlBackground;
                     control.ForeColor = DarkControlForeground;
+
+                    // Enable System Dark Mode for Scrollbars and Headers (Win10/11)
+                    if (control is ListView || control is TreeView)
+                    {
+                        NativeMethods.SetWindowTheme(control.Handle, "DarkMode_Explorer", null);
+                    }
                 }
-                // Add more specific control handling here
             }
             else
             {
                 control.BackColor = LightBackground;
                 control.ForeColor = LightForeground;
                 
-                 if (control is TextBox || control is ListBox || control is ComboBox || control is TreeView)
+                 if (control is TextBox || control is ListBox || control is ComboBox || 
+                     control is TreeView || control is ListView)
                 {
                      control.BackColor = SystemColors.Window;
                      control.ForeColor = SystemColors.WindowText;
+                     
+                     if (control is ListView || control is TreeView)
+                     {
+                         NativeMethods.SetWindowTheme(control.Handle, "Explorer", null);
+                     }
                 }
             }
             
@@ -132,6 +165,12 @@ namespace Klocman.Forms.Tools
                 // Fallback to light mode if check fails
             }
             return false;
+        }
+
+        private static class NativeMethods
+        {
+            [DllImport("uxtheme.dll", ExactSpelling = true, CharSet = CharSet.Unicode)]
+            public static extern int SetWindowTheme(IntPtr hWnd, string pszSubAppName, string pszSubIdList);
         }
     }
 }

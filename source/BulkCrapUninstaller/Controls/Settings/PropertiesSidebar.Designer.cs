@@ -35,23 +35,23 @@ namespace BulkCrapUninstaller.Controls
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PropertiesSidebar));
-            this.checkBoxOrphans = new System.Windows.Forms.CheckBox();
-            this.checkBoxInvalidTest = new System.Windows.Forms.CheckBox();
-            this.checkBoxCertTest = new System.Windows.Forms.CheckBox();
+            this.checkBoxOrphans = new AntdUI.Checkbox();
+            this.checkBoxInvalidTest = new AntdUI.Checkbox();
+            this.checkBoxCertTest = new AntdUI.Checkbox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxListHideMicrosoft = new System.Windows.Forms.CheckBox();
-            this.checkBoxListSysComp = new System.Windows.Forms.CheckBox();
-            this.checkBoxListProtected = new System.Windows.Forms.CheckBox();
-            this.checkBoxTweaks = new System.Windows.Forms.CheckBox();
-            this.checkBoxShowUpdates = new System.Windows.Forms.CheckBox();
-            this.checkBoxWinFeature = new System.Windows.Forms.CheckBox();
-            this.checkBoxShowStoreApps = new System.Windows.Forms.CheckBox();
+            this.checkBoxListHideMicrosoft = new AntdUI.Checkbox();
+            this.checkBoxListSysComp = new AntdUI.Checkbox();
+            this.checkBoxListProtected = new AntdUI.Checkbox();
+            this.checkBoxTweaks = new AntdUI.Checkbox();
+            this.checkBoxShowUpdates = new AntdUI.Checkbox();
+            this.checkBoxWinFeature = new AntdUI.Checkbox();
+            this.checkBoxShowStoreApps = new AntdUI.Checkbox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkBoxViewCheckboxes = new System.Windows.Forms.CheckBox();
-            this.checkBoxViewGroups = new System.Windows.Forms.CheckBox();
-            this.checkBoxHighlightSpecial = new System.Windows.Forms.CheckBox();
+            this.checkBoxViewCheckboxes = new AntdUI.Checkbox();
+            this.checkBoxViewGroups = new AntdUI.Checkbox();
+            this.checkBoxHighlightSpecial = new AntdUI.Checkbox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.usageTracker1 = new BulkCrapUninstaller.Functions.Tracking.UsageTracker();
             this.groupBox2.SuspendLayout();
@@ -65,21 +65,21 @@ namespace BulkCrapUninstaller.Controls
             resources.ApplyResources(this.checkBoxOrphans, "checkBoxOrphans");
             this.checkBoxOrphans.Name = "checkBoxOrphans";
             this.toolTip1.SetToolTip(this.checkBoxOrphans, resources.GetString("checkBoxOrphans.ToolTip"));
-            this.checkBoxOrphans.UseVisualStyleBackColor = true;
+            // this.checkBoxOrphans.UseVisualStyleBackColor = true;
             // 
             // checkBoxInvalidTest
             // 
             resources.ApplyResources(this.checkBoxInvalidTest, "checkBoxInvalidTest");
             this.checkBoxInvalidTest.Name = "checkBoxInvalidTest";
             this.toolTip1.SetToolTip(this.checkBoxInvalidTest, resources.GetString("checkBoxInvalidTest.ToolTip"));
-            this.checkBoxInvalidTest.UseVisualStyleBackColor = true;
+            // this.checkBoxInvalidTest.UseVisualStyleBackColor = true;
             // 
             // checkBoxCertTest
             // 
             resources.ApplyResources(this.checkBoxCertTest, "checkBoxCertTest");
             this.checkBoxCertTest.Name = "checkBoxCertTest";
             this.toolTip1.SetToolTip(this.checkBoxCertTest, resources.GetString("checkBoxCertTest.ToolTip"));
-            this.checkBoxCertTest.UseVisualStyleBackColor = true;
+            // this.checkBoxCertTest.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -106,46 +106,46 @@ namespace BulkCrapUninstaller.Controls
             resources.ApplyResources(this.checkBoxListHideMicrosoft, "checkBoxListHideMicrosoft");
             this.checkBoxListHideMicrosoft.Name = "checkBoxListHideMicrosoft";
             this.toolTip1.SetToolTip(this.checkBoxListHideMicrosoft, resources.GetString("checkBoxListHideMicrosoft.ToolTip"));
-            this.checkBoxListHideMicrosoft.UseVisualStyleBackColor = true;
+            // this.checkBoxListHideMicrosoft.UseVisualStyleBackColor = true;
             // 
             // checkBoxListSysComp
             // 
             resources.ApplyResources(this.checkBoxListSysComp, "checkBoxListSysComp");
             this.checkBoxListSysComp.Name = "checkBoxListSysComp";
             this.toolTip1.SetToolTip(this.checkBoxListSysComp, resources.GetString("checkBoxListSysComp.ToolTip"));
-            this.checkBoxListSysComp.UseVisualStyleBackColor = true;
+            // this.checkBoxListSysComp.UseVisualStyleBackColor = true;
             // 
             // checkBoxListProtected
             // 
             resources.ApplyResources(this.checkBoxListProtected, "checkBoxListProtected");
             this.checkBoxListProtected.Name = "checkBoxListProtected";
             this.toolTip1.SetToolTip(this.checkBoxListProtected, resources.GetString("checkBoxListProtected.ToolTip"));
-            this.checkBoxListProtected.UseVisualStyleBackColor = true;
+            // this.checkBoxListProtected.UseVisualStyleBackColor = true;
             // 
             // checkBoxTweaks
             // 
             resources.ApplyResources(this.checkBoxTweaks, "checkBoxTweaks");
             this.checkBoxTweaks.Name = "checkBoxTweaks";
-            this.checkBoxTweaks.UseVisualStyleBackColor = true;
+            // this.checkBoxTweaks.UseVisualStyleBackColor = true;
             // 
             // checkBoxShowUpdates
             // 
             resources.ApplyResources(this.checkBoxShowUpdates, "checkBoxShowUpdates");
             this.checkBoxShowUpdates.Name = "checkBoxShowUpdates";
             this.toolTip1.SetToolTip(this.checkBoxShowUpdates, resources.GetString("checkBoxShowUpdates.ToolTip"));
-            this.checkBoxShowUpdates.UseVisualStyleBackColor = true;
+            // this.checkBoxShowUpdates.UseVisualStyleBackColor = true;
             // 
             // checkBoxWinFeature
             // 
             resources.ApplyResources(this.checkBoxWinFeature, "checkBoxWinFeature");
             this.checkBoxWinFeature.Name = "checkBoxWinFeature";
-            this.checkBoxWinFeature.UseVisualStyleBackColor = true;
+            // this.checkBoxWinFeature.UseVisualStyleBackColor = true;
             // 
             // checkBoxShowStoreApps
             // 
             resources.ApplyResources(this.checkBoxShowStoreApps, "checkBoxShowStoreApps");
             this.checkBoxShowStoreApps.Name = "checkBoxShowStoreApps";
-            this.checkBoxShowStoreApps.UseVisualStyleBackColor = true;
+            // this.checkBoxShowStoreApps.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -169,21 +169,21 @@ namespace BulkCrapUninstaller.Controls
             resources.ApplyResources(this.checkBoxViewCheckboxes, "checkBoxViewCheckboxes");
             this.checkBoxViewCheckboxes.Name = "checkBoxViewCheckboxes";
             this.toolTip1.SetToolTip(this.checkBoxViewCheckboxes, resources.GetString("checkBoxViewCheckboxes.ToolTip"));
-            this.checkBoxViewCheckboxes.UseVisualStyleBackColor = true;
+            // this.checkBoxViewCheckboxes.UseVisualStyleBackColor = true;
             // 
             // checkBoxViewGroups
             // 
             resources.ApplyResources(this.checkBoxViewGroups, "checkBoxViewGroups");
             this.checkBoxViewGroups.Name = "checkBoxViewGroups";
             this.toolTip1.SetToolTip(this.checkBoxViewGroups, resources.GetString("checkBoxViewGroups.ToolTip"));
-            this.checkBoxViewGroups.UseVisualStyleBackColor = true;
+            // this.checkBoxViewGroups.UseVisualStyleBackColor = true;
             // 
             // checkBoxHighlightSpecial
             // 
             resources.ApplyResources(this.checkBoxHighlightSpecial, "checkBoxHighlightSpecial");
             this.checkBoxHighlightSpecial.Name = "checkBoxHighlightSpecial";
             this.toolTip1.SetToolTip(this.checkBoxHighlightSpecial, resources.GetString("checkBoxHighlightSpecial.ToolTip"));
-            this.checkBoxHighlightSpecial.UseVisualStyleBackColor = true;
+            // this.checkBoxHighlightSpecial.UseVisualStyleBackColor = true;
             // 
             // usageTracker1
             // 
@@ -213,22 +213,22 @@ namespace BulkCrapUninstaller.Controls
         #endregion
         private GroupBox groupBox2;
         private FlowLayoutPanel flowLayoutPanel2;
-        private CheckBox checkBoxListHideMicrosoft;
-        private CheckBox checkBoxShowUpdates;
-        private CheckBox checkBoxListSysComp;
-        private CheckBox checkBoxListProtected;
+        private AntdUI.Checkbox checkBoxListHideMicrosoft;
+        private AntdUI.Checkbox checkBoxShowUpdates;
+        private AntdUI.Checkbox checkBoxListSysComp;
+        private AntdUI.Checkbox checkBoxListProtected;
         private GroupBox groupBox1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private CheckBox checkBoxViewCheckboxes;
-        private CheckBox checkBoxViewGroups;
+        private AntdUI.Checkbox checkBoxViewCheckboxes;
+        private AntdUI.Checkbox checkBoxViewGroups;
         private ToolTip toolTip1;
         private UsageTracker usageTracker1;
-        private CheckBox checkBoxCertTest;
-        private CheckBox checkBoxInvalidTest;
-        private CheckBox checkBoxOrphans;
-        private CheckBox checkBoxShowStoreApps;
-        private CheckBox checkBoxWinFeature;
-        private CheckBox checkBoxHighlightSpecial;
-        private CheckBox checkBoxTweaks;
+        private AntdUI.Checkbox checkBoxCertTest;
+        private AntdUI.Checkbox checkBoxInvalidTest;
+        private AntdUI.Checkbox checkBoxOrphans;
+        private AntdUI.Checkbox checkBoxShowStoreApps;
+        private AntdUI.Checkbox checkBoxWinFeature;
+        private AntdUI.Checkbox checkBoxHighlightSpecial;
+        private AntdUI.Checkbox checkBoxTweaks;
     }
 }
