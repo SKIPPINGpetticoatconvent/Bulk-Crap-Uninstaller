@@ -94,7 +94,7 @@ namespace BulkCrapUninstaller.Forms
                 
                 if (isDark)
                 {
-                    ToolStripManager.Renderer = new ToolStripProfessionalRenderer(new DarkColorTable()) { RoundedEdges = true };
+                    ToolStripManager.Renderer = new DarkToolStripRenderer(new DarkColorTable()) { RoundedEdges = true };
                     menuStrip.BackColor = ThemeController.Palette.DarkBackground;
                     menuStrip.ForeColor = ThemeController.Palette.DarkForeground;
                     toolStrip.BackColor = ThemeController.Palette.DarkBackground;

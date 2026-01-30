@@ -32,7 +32,7 @@ namespace BulkCrapUninstaller.Forms
             AntdUI.Config.Font = new Font("Segoe UI", 9F);
         }
 
-        // private ThemeController _themeController; // Removed
+        private ThemeController _themeController;
 
         protected override void OnLoad(EventArgs e)
         {
@@ -40,19 +40,18 @@ namespace BulkCrapUninstaller.Forms
 
             if (DesignMode) return;
             
-            // AntdUI handles theming automatically
-            /*
+            if (DesignMode) return;
+            
             _themeController = new ThemeController(this);
+            // Apply initial theme
+            if (Enum.TryParse<ThemeController.Theme>(_settings.Settings.MiscTheme, true, out var initialTheme))
+                _themeController.ApplyTheme(initialTheme);
+                
             _settings.Subscribe((x, y) =>
             {
                 if (Enum.TryParse<ThemeController.Theme>(y.NewValue, true, out var theme))
                     _themeController.ApplyTheme(theme);
             }, x => x.MiscTheme, this);
-
-            // Apply initial theme
-            if (Enum.TryParse<ThemeController.Theme>(_settings.Settings.MiscTheme, true, out var initialTheme))
-                _themeController.ApplyTheme(initialTheme);
-            */
 
             Icon = Resources.Icon_Logo;
 

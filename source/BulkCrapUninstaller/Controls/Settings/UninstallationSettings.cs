@@ -61,7 +61,11 @@ namespace BulkCrapUninstaller.Controls
             sb.Subscribe((sender, args) => checkBoxGenerateStuck.Enabled = args.NewValue, settings => settings.QuietAutomatization, this);
         
             sb.Subscribe(
-                (x, y) => checkBoxSimulate.ForeColor = y.NewValue ? Color.OrangeRed : SystemColors.ControlText,
+                (x, y) => {
+                    var isDark = AntdUI.Config.Mode == AntdUI.TMode.Dark;
+                    var defaultColor = isDark ? Klocman.Forms.Tools.ThemeController.Palette.DarkForeground : SystemColors.ControlText;
+                    checkBoxSimulate.ForeColor = y.NewValue ? Color.OrangeRed : defaultColor;
+                },
                 x => x.AdvancedSimulate, this);
         
             sb.SendUpdates(this);
