@@ -112,10 +112,10 @@ namespace Klocman.Forms.Tools
                     control.BackColor = DarkControlBackground;
                     control.ForeColor = DarkControlForeground;
 
-                    // Enable System Dark Mode for Scrollbars and Headers (Win10/11)
                     if (control is ListView || control is TreeView)
                     {
-                        NativeMethods.SetWindowTheme(control.Handle, "DarkMode_Explorer", null);
+                         // Force re-apply theme to ensure headers catch it
+                         NativeMethods.SetWindowTheme(control.Handle, "DarkMode_Explorer", null);
                     }
                 }
             }

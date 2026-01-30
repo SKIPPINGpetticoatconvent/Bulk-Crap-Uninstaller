@@ -95,23 +95,42 @@ namespace BulkCrapUninstaller.Forms
                 if (isDark)
                 {
                     ToolStripManager.Renderer = new DarkToolStripRenderer(new DarkColorTable()) { RoundedEdges = true };
+                    
                     menuStrip.BackColor = ThemeController.Palette.DarkBackground;
                     menuStrip.ForeColor = ThemeController.Palette.DarkForeground;
                     toolStrip.BackColor = ThemeController.Palette.DarkBackground;
                     toolStrip.ForeColor = ThemeController.Palette.DarkForeground;
                     statusStrip1.BackColor = ThemeController.Palette.DarkBackground;
                     statusStrip1.ForeColor = ThemeController.Palette.DarkForeground;
+                    
+                    uninstallerObjectListView.UseAlternatingBackColors = false;
+                    uninstallerObjectListView.HeaderUsesThemes = true;
+                    uninstallerObjectListView.BackColor = ThemeController.Palette.DarkControlBackground;
+                    uninstallerObjectListView.ForeColor = ThemeController.Palette.DarkControlForeground;
+                    
+                    // Force refresh headers
+                    ThemeController.ApplyTheme(ThemeController.Theme.Dark); 
                 }
                 else
                 {
                     ToolStripManager.Renderer = new ToolStripProfessionalRenderer(new StandardSystemColorTable()) { RoundedEdges = true };
+                    
                     menuStrip.BackColor = SystemColors.MenuBar;
                     menuStrip.ForeColor = SystemColors.MenuText;
                     toolStrip.BackColor = SystemColors.Control;
                     toolStrip.ForeColor = SystemColors.ControlText;
                     statusStrip1.BackColor = SystemColors.Control;
                     statusStrip1.ForeColor = SystemColors.ControlText;
+                    
+                    uninstallerObjectListView.UseAlternatingBackColors = true;
+                    uninstallerObjectListView.HeaderUsesThemes = false; // Reset to default
+                    uninstallerObjectListView.BackColor = SystemColors.Window;
+                    uninstallerObjectListView.ForeColor = SystemColors.WindowText;
                 }
+                
+                // Refresh TreeMap to apply new colors
+                treeMap1.Refresh();
+                uninstallerObjectListView.Refresh();
                 Refresh();
             };
 
@@ -220,7 +239,13 @@ namespace BulkCrapUninstaller.Forms
 
             treeMap1.ObjectNameGetter = o => ((ApplicationUninstallerEntry)o).DisplayName;
             treeMap1.ObjectValueGetter = o => ((ApplicationUninstallerEntry)o).EstimatedSize.GetKbSize();
-            treeMap1.ObjectColorGetter = o => ApplicationListConstants.GetApplicationTreemapColor((ApplicationUninstallerEntry)o);
+            treeMap1.ObjectColorGetter = o => 
+            {
+                var color = ApplicationListConstants.GetApplicationTreemapColor((ApplicationUninstallerEntry)o);
+                if (ThemeController.IsDark)
+                    return ThemeController.DarkenColor(color, 0.6f); // Make it 40% darker
+                return color;
+            };
 
             _uninstallerListPostProcesser.UninstallerPostprocessingProgressUpdate += UpdateTreemapOnPostprocessingUpdate;
 
